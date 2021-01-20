@@ -6,6 +6,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
 import lt.kvk.i14.karolis_krolis.baigiamasis.backend.api.entity.AuthRequest;
@@ -22,6 +23,12 @@ public class WelcomeController {
 	@GetMapping("/")
 	public String welcome() {
 		return "Welcome to JWT";
+	}
+	
+	@GetMapping("/joke")
+	public String joke(@RequestHeader("Authorization") String header) {
+		
+		return "This is a joke " + jwtUtil.filterUserName(header);
 	}
 	
 	@PostMapping("/auth")

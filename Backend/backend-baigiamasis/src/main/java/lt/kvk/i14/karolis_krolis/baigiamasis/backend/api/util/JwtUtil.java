@@ -14,7 +14,7 @@ import java.util.function.Function;
 @Service
 public class JwtUtil {
 
-    private String secret = "javatechie";
+    private String secret = "secret";
 
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
@@ -52,4 +52,14 @@ public class JwtUtil {
         final String username = extractUsername(token);
         return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
     }
+    
+	public String filterUserName(String header) {
+		String token = null;
+		String userName = null;
+		if (header != null && header.startsWith("Bearer ")) {
+			token = header.substring(7);
+			userName = extractUsername(token);
+		}
+		return userName;
+	}
 }
