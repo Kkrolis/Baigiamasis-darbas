@@ -21,8 +21,8 @@ public class WelcomeController {
 	private AuthenticationManager authenticationManager;
 
 	@GetMapping("/")
-	public String welcome() {
-		return "Welcome to JWT";
+	public String welcome(@RequestHeader("Authorization") String header) {
+		return "Welcome " + jwtUtil.filterUserName(header);
 	}
 	
 	@GetMapping("/joke")
