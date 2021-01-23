@@ -18,13 +18,12 @@ public class MessageController {
 	@Autowired
 	private SimpMessagingTemplate simpMessagingTemplate;
 
-	@MessageMapping("/chat/{to}")
-	public void sendMessage(@DestinationVariable String to, Message message) {
-		System.out.println("mssg: " + message + " to: " + to);
-		User user = repository.findByUserName(to);
-		if (user.getUserName() == to) {
-			simpMessagingTemplate.convertAndSend("/topic/messagis/" + to, message);
+	@MessageMapping("/send/message")
+	public void sendMessage(Message message) {
+		System.out.println("mssg: " + message);
+
+			simpMessagingTemplate.convertAndSend("/message/");
 		} 
 		
 	}
-}
+
