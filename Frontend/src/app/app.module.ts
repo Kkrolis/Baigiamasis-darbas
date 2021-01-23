@@ -5,12 +5,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SecurityComponent } from './security/security.component';
+import { InterestCalcComponent } from './interest-calc/interest-calc.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SecurityComponent
-  ],
+    SecurityComponent,
+    InterestCalcComponent
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,

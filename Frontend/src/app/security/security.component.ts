@@ -10,21 +10,30 @@ export class SecurityComponent implements OnInit {
 
   authRequest: any =
   {
-    "userName": "admin",
-    "userPassword": "admin"
+    "userName": null,
+    "userPassword": null
   }
 
   response:any;
+  token:any;
 
   constructor(private service: JwtClientService) { }
 
   ngOnInit(): void {
+
+  }
+
+  public login(userName, userPassword){
+    this.authRequest.userName = userName;
+    this.authRequest.userPassword = userPassword;
     this.getAccessToken(this.authRequest);
   }
 
   public getAccessToken(authRequest){
     let res = this.service.generateToken(authRequest);
-    res.subscribe(data=>this.accessApi(data));
+    res.subscribe(data=>{
+      this.accessApi(data);
+      this.token = data;});
   }
 
   public accessApi(token){
