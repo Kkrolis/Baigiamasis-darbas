@@ -49,7 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.cors().disable();
 		// To add more Rest mapings to work without authorization, after "/auth" add more maps pvz: "/auth", "/work"
-		http.csrf().disable().authorizeRequests().antMatchers("/auth")
+		http.csrf().disable().authorizeRequests().antMatchers("/auth", "/chat")
 		.permitAll().antMatchers(HttpMethod.OPTIONS, "/**").permitAll().anyRequest().authenticated().and()
 				.exceptionHandling().and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
