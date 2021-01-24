@@ -1,5 +1,9 @@
 package lt.kvk.i14.karolis_krolis.baigiamasis.backend.api.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -10,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
 import lt.kvk.i14.karolis_krolis.baigiamasis.backend.api.entity.AuthRequest;
+import lt.kvk.i14.karolis_krolis.baigiamasis.backend.api.entity.User;
+import lt.kvk.i14.karolis_krolis.baigiamasis.backend.api.repository.UserRepository;
 import lt.kvk.i14.karolis_krolis.baigiamasis.backend.api.util.JwtUtil;
 
 @RestController
@@ -19,6 +25,8 @@ public class WelcomeController {
 	private JwtUtil jwtUtil;
 	@Autowired
 	private AuthenticationManager authenticationManager;
+	@Autowired
+	private UserRepository repository;
 
 	@GetMapping("/")
 	public String welcome(@RequestHeader("Authorization") String header) {
@@ -39,6 +47,11 @@ public class WelcomeController {
 			throw new Exception("Invalid username or password");
 		}
 		return jwtUtil.generateToken(authRequest.getUserName());
+	}
+	
+	@GetMapping("/fetchAllUsers")
+	public List<User> fetchAll(){
+		return repository.findAll();
 	}
 	
 }
