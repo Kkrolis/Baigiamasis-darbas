@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { JwtClientService } from '../jwt-client.service';
+import {Router,ActivatedRoute} from '@angular/router';
+
 
 @Component({
   selector: 'app-security',
@@ -16,8 +18,9 @@ export class SecurityComponent implements OnInit {
 
   response:any;
   token:any;
+  test1: string = localStorage.getItem('token');
 
-  constructor(private service: JwtClientService) { }
+  constructor(private service: JwtClientService, private readonly router: Router, private readonly route: ActivatedRoute) { }
 
   ngOnInit(): void {
 
@@ -26,19 +29,25 @@ export class SecurityComponent implements OnInit {
   public login(userName, userPassword){
     this.authRequest.userName = userName;
     this.authRequest.userPassword = userPassword;
-    this.getAccessToken(this.authRequest);
+    this.getAccessTokenAndLogin(this.authRequest);
   }
 
-  public getAccessToken(authRequest){
+  public getAccessTokenAndLogin(authRequest){
     let res = this.service.generateToken(authRequest);
     res.subscribe(data=>{
-      this.accessApi(data);
-      this.token = data;});
+      this.accessApi(data); // this is only for testing porpuses
+      this.token = data;
+      localStorage.setItem('token', this.token);
+      this.router.navigate(['/main_page'], {relativeTo: this.route});  // navigates to another route, if used in antoher place doesn't work
+    });
   }
 
   public accessApi(token){
     let res = this.service.welcome(token);
-    res.subscribe(data=>this.response=data);
+    res.subscribe(data=>{
+      this.response = data;
+      localStorage.setItem('userName', this.response);
+    });
   }
 
 }
