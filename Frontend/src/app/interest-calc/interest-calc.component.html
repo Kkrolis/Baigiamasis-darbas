@@ -1,51 +1,71 @@
-<div>
-<div>
-    <label class="d-flex justify-content-center">Palūkanų skaičiuoklė</label>
-</div>
-  <form class="shadow p-3 mb-5 rounded">
-      <div class="form-group row">
-          <label for="ammount" class="col-sm-3 col-form-label">Pinigų suma</label>
-          <div class="col-sm-7">
-              <input type="number" class="form-control" id="ammount" #ammount>
-          </div>
-      </div>
-
-      <div class="form-group row">
-          <div class="row d-flex justify-content-center">
-          <label for="interest" class="col-sm-3 col-form-label d-flex justify-content-center">Palukanu kiekis %</label>
-        </div>
-        <div class="row d-flex justify-content-center">
-          <div class="col-sm-7">
-              <input type="number" class="form-control" id=interest #interest>
-          </div>
-        </div>
-      </div>
-
-      <div class="form-group row">
-        <label for="loanTime" class="col-sm-3 col-form-label">Paskolos Laikotarpis</label>
-        <div class="col-sm-7">
-            <input type="number" class="form-control" id=loanTime #loanTime>
-        </div>
+<div class="interest-clac">
+    <div>
+        <label class="d-flex justify-content-center">Palūkanų skaičiuoklė</label>
     </div>
+    <form class=" p-3 mb-5 rounded">
+        <!-- NOTE: this is input for how mutch money -->
+        <div class="form-group row">
+            <div class="row d-flex justify-content-center">
+            <label for="ammount" class="col-sm-12 col-form-label d-flex justify-content-center">Pinigų suma</label>
+            </div>
+            <div class="row d-flex justify-content-center">
+            <div class="col-sm-7">
+                <input type="number" class="form-control" id="ammount" #ammount>
+            </div>
+        </div>
+        </div>
 
-    <div class="form-group row">
-      <label for="interestFreak" class="col-sm-3 col-form-label">Kas kiek skaicioujamos palukanos</label>
-      <div class="col-sm-7">
-          <input type="number" class="form-control" id=interestFreak #interestFreak>
-      </div>
-  </div>
+        <!-- NOTE: this is interest % -->
+        <div class="form-group row">
+            <div class="row d-flex justify-content-center">
+                <label for="interest" class="col-sm-12 col-form-label d-flex justify-content-center">Palukanu kiekis
+                    {{interest.value}}%</label>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-sm-12 d-flex justify-content-center">
+                    <!-- <input type="number" class="form-control" id=interest #interest> -->
+                    <mat-slider thumbLabel tickInterval="1" min="1" max="100" #interest></mat-slider>
+                </div>
+            </div>
+        </div>
 
-      <div class="form-group row">
-          <div class="col-sm-4"></div>
-          <div class="col-sm-8">
-              <button type="button" class="btn btn-primary mb-2 float-right" (click)="calculateCompoundInterest(ammount.value, interest.value, interestFreak.value, loanTime.value)">Skaiciuoti</button>
-          </div>
-      </div>
-      <div class="col-sm-10"></div>
-      <div class="col-sm-2">
-        <p>{{result}}</p>
-  </div>
-  </form>
+        <!-- NOTE: this is loan time -->
+        <div class="form-group row">
+            <div class="row d-flex justify-content-center">
+                <label for="loanTime" class="col-sm-12 col-form-label d-flex justify-content-center">Paskolos Laikotarpis {{loanTime.value}}
+                    mėn.</label>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-sm-12 d-flex justify-content-center">
+                    <!-- <input type="number" class="form-control" id=loanTime #loanTime> -->
+                    <mat-slider thumbLabel tickInterval="1" min="1" max="76" #loanTime></mat-slider>
+                </div>
+            </div>
+        </div>
+
+        <!-- NOTE: this is interest freaquancy -->
+        <div class="form-group row">
+            <div class="row d-flex justify-content-center">
+                <label for="interestFreak" class="col-sm-12 col-form-label d-flex justify-content-center">Kas mėnesį palūkanos bus skaičiuojamos {{interestFreak.value}} kartų</label>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-sm-12 d-flex justify-content-center">
+                    <!-- <input type="number" class="form-control" id=interestFreak #interestFreak> -->
+                    <mat-slider thumbLabel tickInterval="1" min="1" max="76" #interestFreak></mat-slider>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <!-- <div class="col-sm-4"></div> -->
+            <div class="col-sm-12 d-flex justify-content-center">
+                <button type="button" class="btn btn-primary mb-2"
+                    (click)="calculateCompoundInterest(ammount.value, interest.value, interestFreak.value, loanTime.value)">Skaiciuoti</button>
+            </div>
+        </div>
+        <div class="col-sm-10"></div>
+        <div class="col-sm-2">
+            <p>{{result}}</p>
+        </div>
+    </form>
 </div>
-
-

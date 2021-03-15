@@ -15,8 +15,9 @@ export class InterestCalcComponent implements OnInit {
 
   }
 
-  public calculateCompoundInterest(moneyAmmountToBarrow: number, interestRate: number, interesCompoundPerPeriod: number, forHowLongLoaned: number) {
+  public calculateCompoundInterest(moneyAmmountToBarrow: number, interestRate1: number, interesCompoundPerPeriod: number, forHowLongLoaned: number) {
     console.log(moneyAmmountToBarrow);
+    let interestRate = interestRate1 / 100;
     let total;
     let calculation1: number = 1 + interestRate / interesCompoundPerPeriod;
     let calculation2: number = interesCompoundPerPeriod * forHowLongLoaned;

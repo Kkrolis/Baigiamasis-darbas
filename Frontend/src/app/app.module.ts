@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MatSliderModule } from '@angular/material/slider';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { JwtModule } from '@auth0/angular-jwt';
@@ -12,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { MainPageComponent } from './main-page/main-page.component';
 import { from } from 'rxjs';
 import { NavbarComponent } from './navbar/navbar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { NavbarComponent } from './navbar/navbar.component';
         tokenGetter: tokenGetter,
         allowedDomains: ['localhost:4200']
       }
-    })
+    }),
+    BrowserAnimationsModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
