@@ -55,4 +55,8 @@ export class SecurityComponent implements OnInit {
     });
   }
 
+  public toRegistracion(){
+    this.router.navigate(['/registration'], {relativeTo: this.route});
+  }
+
 }

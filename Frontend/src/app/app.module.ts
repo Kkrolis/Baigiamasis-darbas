@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatSliderModule } from '@angular/material/slider';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { JwtModule } from '@auth0/angular-jwt';
@@ -15,6 +14,10 @@ import { from } from 'rxjs';
 import { NavbarComponent } from './navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { MatSliderModule } from '@angular/material/slider';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { RegistrationComponent } from './registration/registration.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +25,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     InterestCalcComponent,
     ChatComponent,
     MainPageComponent,
-    NavbarComponent
+    NavbarComponent,
+    RegistrationComponent
    ],
   imports: [
     BrowserModule,
@@ -36,7 +40,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       }
     }),
     BrowserAnimationsModule,
-    MatSliderModule
+    MatSliderModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
