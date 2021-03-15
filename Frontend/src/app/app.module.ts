@@ -11,6 +11,7 @@ import { ChatComponent } from './chat/chat.component';
 import { FormsModule } from '@angular/forms';
 import { MainPageComponent } from './main-page/main-page.component';
 import { from } from 'rxjs';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { from } from 'rxjs';
     SecurityComponent,
     InterestCalcComponent,
     ChatComponent,
-    MainPageComponent
+    MainPageComponent,
+    NavbarComponent
    ],
   imports: [
     BrowserModule,

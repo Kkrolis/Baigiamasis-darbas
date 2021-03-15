@@ -36,7 +36,9 @@ public class WelcomeController {
 		try {
 		authenticationManager.authenticate( new UsernamePasswordAuthenticationToken(authRequest.getUserName(), authRequest.getUserPassword()));
 		} catch (Exception e) {
-			throw new Exception("Invalid username or password");
+			System.out.println("Invalid username or password");
+			return "Invalid username or password";
+			//throw new Exception("Invalid username or password");
 		}
 		return jwtUtil.generateToken(authRequest.getUserName());
 	}

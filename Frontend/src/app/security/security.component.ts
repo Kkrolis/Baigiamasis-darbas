@@ -37,11 +37,16 @@ export class SecurityComponent implements OnInit {
     res.subscribe(data=>{
       this.accessApi(data); // this is only for testing porpuses
       this.token = data;
-      localStorage.setItem('token', this.token);
+      if (data == "Invalid username or password") {
+        alert("Invalid username or password");
+      } else {
+        localStorage.setItem('token', this.token);
+      }
       this.router.navigate(['/main_page'], {relativeTo: this.route});  // navigates to another route, if used in antoher place doesn't work
     });
   }
 
+// this for testing saving to local storage
   public accessApi(token){
     let res = this.service.welcome(token);
     res.subscribe(data=>{
