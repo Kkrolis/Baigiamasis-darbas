@@ -18,7 +18,6 @@ export class SecurityComponent implements OnInit {
 
   response:any;
   token:any;
-  test1: string = localStorage.getItem('token');
 
   constructor(private service: JwtClientService, private readonly router: Router, private readonly route: ActivatedRoute) { }
 

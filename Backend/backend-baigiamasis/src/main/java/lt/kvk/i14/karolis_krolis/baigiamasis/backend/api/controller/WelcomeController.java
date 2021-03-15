@@ -22,7 +22,7 @@ public class WelcomeController {
 
 	@GetMapping("/")
 	public String welcome(@RequestHeader("Authorization") String header) {
-		return "Welcome " + jwtUtil.filterUserName(header);
+		return jwtUtil.filterUserName(header);
 	}
 	
 	@GetMapping("/joke")

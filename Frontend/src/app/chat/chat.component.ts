@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { JwtClientService } from '../jwt-client.service';
 import { ChatMessageDto } from '../models/chatMessageDto';
 import { WebSocketService } from './web-socket.service';
 
@@ -10,7 +11,9 @@ import { WebSocketService } from './web-socket.service';
 })
 export class ChatComponent implements OnInit, OnDestroy {
 
-  constructor(public webSocketService: WebSocketService) { }
+  userName: any = localStorage.getItem('userName');
+
+  constructor(public webSocketService: WebSocketService, private service: JwtClientService) { }
 
   ngOnInit(): void {
     this.webSocketService.openWebSocket();
@@ -20,9 +23,21 @@ export class ChatComponent implements OnInit, OnDestroy {
     this.webSocketService.closeWebSocket();
   }
 
-  sendMessage(sendForm: NgForm){
-    const chatMessageDto: ChatMessageDto = new ChatMessageDto(sendForm.value.user, sendForm.value.message);
-    this.webSocketService.sendMessage(chatMessageDto);
-    sendForm.controls.message.reset();
+  sendMessage(sendForm: NgForm) {
+    // if segment is needed for cheking if userName exist in local storage 
+    if (localStorage.getItem('userName') === null) {
+      let res = this.service.welcome(localStorage.getItem('token'));
+      res.subscribe(data => {
+        this.userName = data;
+        localStorage.setItem('userName', this.userName);
+        const chatMessageDto: ChatMessageDto = new ChatMessageDto(this.userName, sendForm.value.message);
+        this.webSocketService.sendMessage(chatMessageDto);
+        sendForm.controls.message.reset();
+      })
+    } else {
+      const chatMessageDto: ChatMessageDto = new ChatMessageDto(this.userName, sendForm.value.message);
+      this.webSocketService.sendMessage(chatMessageDto);
+      sendForm.controls.message.reset();
+    }
   }
 }
