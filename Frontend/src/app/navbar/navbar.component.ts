@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { LogoutDialogComponent } from '../logout-dialog/logout-dialog.component';
 
 @Component({
@@ -9,15 +9,17 @@ import { LogoutDialogComponent } from '../logout-dialog/logout-dialog.component'
 })
 export class NavbarComponent implements OnInit {
 
+  isLogedIn: boolean;
+
   constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
+    if (localStorage.getItem("token") === null) {
+      this.isLogedIn = true;
+    } else {
+      this.isLogedIn = false;
+    }
   }
-
-  // logout() {
-  //   localStorage.removeItem("token");
-  //   localStorage.removeItem("userName"); 
-  // }
 
   openDialog() {
 
@@ -27,5 +29,6 @@ export class NavbarComponent implements OnInit {
     dialogConfig.autoFocus = true;
 
     this.dialog.open(LogoutDialogComponent, dialogConfig);
-}
+  }
+
 }

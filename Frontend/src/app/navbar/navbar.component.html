@@ -1,3 +1,4 @@
+<!-- NOTE: Needs to be added to every component becouse of state managment -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand mx-5" href="/main_page">LOGO</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -5,13 +6,23 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse flex-row-reverse mx-5" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="/login">Prisijungti/Registruotis</a>
-            </li>
-            <li>
+        <div *ngIf="isLogedIn; else elseblock">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/login">Prisijungti/Registruotis</a>
+                </li>
+                <!-- <li>
                 <a (click)="openDialog()"><img src="assets/img/power-button-icon-.png" width="25" height="25" matTooltip="Atsijungti" class="d-flex align-items-center"></a>
-            </li>
-        </ul>
+            </li> -->
+            </ul>
+        </div>
     </div>
 </nav>
+<ng-template #elseblock>
+    <ul class="navbar-nav">
+        <li>
+            <a (click)="openDialog()"><img src="assets/img/power-button-icon-.png" width="25" height="25"
+                    matTooltip="Atsijungti" class="d-flex align-items-center"></a>
+        </li>
+    </ul>
+</ng-template>

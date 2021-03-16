@@ -29,6 +29,7 @@ export class SecurityComponent implements OnInit {
     this.authRequest.userName = userName;
     this.authRequest.userPassword = userPassword;
     this.getAccessTokenAndLogin(this.authRequest);
+
   }
 
   public getAccessTokenAndLogin(authRequest){
