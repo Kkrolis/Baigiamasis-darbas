@@ -20,6 +20,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatDialogModule} from '@angular/material/dialog';
+import { LogoutDialogComponent } from './logout-dialog/logout-dialog.component';
 
 
 
@@ -32,7 +34,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     ChatComponent,
     MainPageComponent,
     NavbarComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    LogoutDialogComponent
    ],
   imports: [
     BrowserModule,
@@ -48,7 +51,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     BrowserAnimationsModule,
     MatSliderModule,
     MatExpansionModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
