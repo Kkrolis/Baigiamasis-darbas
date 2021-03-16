@@ -16,8 +16,11 @@ import { FormsModule } from '@angular/forms';
 import { from } from 'rxjs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// NOTE: Angular material imports
 import { MatSliderModule } from '@angular/material/slider';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatTooltipModule} from '@angular/material/tooltip';
+
 
 
 
@@ -44,7 +47,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     }),
     BrowserAnimationsModule,
     MatSliderModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]
