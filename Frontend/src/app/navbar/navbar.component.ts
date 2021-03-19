@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { LogoutDialogComponent } from '../logout-dialog/logout-dialog.component';
+import { LogoutDialogComponent } from '../dialogs/logout-dialog/logout-dialog.component';
 
 @Component({
   selector: 'app-navbar',

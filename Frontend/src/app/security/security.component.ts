@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { JwtClientService } from '../jwt-client.service';
 import {Router,ActivatedRoute} from '@angular/router';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { InvalidLoginComponent } from '../dialogs/invalid-login/invalid-login.component';
 
 
 @Component({
@@ -19,7 +21,7 @@ export class SecurityComponent implements OnInit {
   response:any;
   token:any;
 
-  constructor(private service: JwtClientService, private readonly router: Router, private readonly route: ActivatedRoute) { }
+  constructor(private service: JwtClientService, private readonly router: Router, private readonly route: ActivatedRoute, private dialog: MatDialog) { }
 
   ngOnInit(): void {
 
@@ -38,7 +40,7 @@ export class SecurityComponent implements OnInit {
       this.accessApi(data); // this is only for testing porpuses
       this.token = data;
       if (data == "Invalid username or password") {
-        alert("Invalid username or password");
+        this.openInvalidUserDialog();
       } else {
         localStorage.setItem('token', this.token);
       }
@@ -57,6 +59,15 @@ export class SecurityComponent implements OnInit {
 
   public toRegistracion(){
     this.router.navigate(['/registration'], {relativeTo: this.route});
+  }
+
+  public openInvalidUserDialog () {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    this.dialog.open(InvalidLoginComponent, dialogConfig);
   }
 
 }

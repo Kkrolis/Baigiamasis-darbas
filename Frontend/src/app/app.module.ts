@@ -21,7 +21,8 @@ import { MatSliderModule } from '@angular/material/slider';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatDialogModule} from '@angular/material/dialog';
-import { LogoutDialogComponent } from './logout-dialog/logout-dialog.component';
+import { LogoutDialogComponent } from './dialogs/logout-dialog/logout-dialog.component';
+import { InvalidLoginComponent } from './dialogs/invalid-login/invalid-login.component';
 
 
 
@@ -35,7 +36,8 @@ import { LogoutDialogComponent } from './logout-dialog/logout-dialog.component';
     MainPageComponent,
     NavbarComponent,
     RegistrationComponent,
-    LogoutDialogComponent
+    LogoutDialogComponent,
+    InvalidLoginComponent
    ],
   imports: [
     BrowserModule,

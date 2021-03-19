@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import { MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-logout-dialog',
