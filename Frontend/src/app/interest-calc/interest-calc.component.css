@@ -3,9 +3,10 @@ mat-slider {
   }
 
 .interest-clac {
-    border-style: solid;
+    /* NOTE: i don't know with looks better: with border or without borders */
+    /* border-style: solid;
     border-width: 1px;
-    border-color: #ffcc66;
+    border-color: #ffcc66; */
 }
 
 .btn:focus,
@@ -21,4 +22,9 @@ mat-slider {
 
 .labelText {
     text-align: center;
+}
+
+.interest-clac {
+    background-color: rgba(255, 255, 255, .2);  
+    backdrop-filter: blur(100px);
 }

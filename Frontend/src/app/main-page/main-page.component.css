@@ -1,3 +1,7 @@
 .row {
     margin-right: 0px;
 }
+
+.col-sm-5 {
+    padding-right: 0px;
+}
