@@ -8,6 +8,7 @@ mat-slider {
     border-color: #ffcc66;
 }
 
+.btn:focus,
 .btn-primary,
 .btn-primary:hover,
 .btn-primary:active,
@@ -16,4 +17,8 @@ mat-slider {
     background-color: #ffcc66;
     border-color: #ffcc66;
     color: black;
+}
+
+.labelText {
+    text-align: center;
 }
