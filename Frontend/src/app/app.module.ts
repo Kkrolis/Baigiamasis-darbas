@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { JwtModule } from '@auth0/angular-jwt';
 
+// my components
 import { AppComponent } from './app.component';
 import { SecurityComponent } from './security/security.component';
 import { InterestCalcComponent } from './interest-calc/interest-calc.component';
@@ -11,6 +12,9 @@ import { ChatComponent } from './chat/chat.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { LogoutDialogComponent } from './dialogs/logout-dialog/logout-dialog.component';
+import { InvalidLoginComponent } from './dialogs/invalid-login/invalid-login.component';
+import { UserMenuComponent } from './menus/user-menu/user-menu.component';
 
 import { FormsModule } from '@angular/forms';
 import { from } from 'rxjs';
@@ -21,10 +25,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatDialogModule} from '@angular/material/dialog';
-import { LogoutDialogComponent } from './dialogs/logout-dialog/logout-dialog.component';
-import { InvalidLoginComponent } from './dialogs/invalid-login/invalid-login.component';
-
-
+import {MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { InvalidLoginComponent } from './dialogs/invalid-login/invalid-login.com
     NavbarComponent,
     RegistrationComponent,
     LogoutDialogComponent,
-    InvalidLoginComponent
+    InvalidLoginComponent,
+    UserMenuComponent
    ],
   imports: [
     BrowserModule,
@@ -54,7 +56,8 @@ import { InvalidLoginComponent } from './dialogs/invalid-login/invalid-login.com
     MatSliderModule,
     MatExpansionModule,
     MatTooltipModule,
-    MatDialogModule
+    MatDialogModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
