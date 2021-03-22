@@ -53,7 +53,7 @@ export class SecurityComponent implements OnInit {
 
   // this for testing saving to local storage
   public accessApi(token) {
-    let res = this.service.welcome(token);
+    let res = this.service.getUserName(token);
     res.subscribe(data => {
       this.response = data;
       localStorage.setItem('userName', this.response);

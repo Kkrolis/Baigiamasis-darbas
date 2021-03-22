@@ -15,7 +15,7 @@ export class UserMenuComponent implements OnInit {
 
   ngOnInit(): void {
     if (localStorage.getItem('userName') === null) {
-      let res = this.service.welcome(localStorage.getItem('token'));
+      let res = this.service.getUserName(localStorage.getItem('token'));
       res.subscribe(data => {
         this.userName = data;
         localStorage.setItem('userName', this.userName);

@@ -18,7 +18,7 @@ export class ChatComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.webSocketService.openWebSocket();
     if (localStorage.getItem('userName') === null) {
-      let res = this.service.welcome(localStorage.getItem('token'));
+      let res = this.service.getUserName(localStorage.getItem('token'));
       res.subscribe(data => {
         this.userName = data;
         localStorage.setItem('userName', this.userName);
@@ -35,7 +35,7 @@ export class ChatComponent implements OnInit, OnDestroy {
   sendMessage(sendForm: NgForm) {
     // if segment is needed for cheking if userName exist in local storage 
     if (!localStorage.getItem('userName') === null) {
-      let res = this.service.welcome(localStorage.getItem('token'));
+      let res = this.service.getUserName(localStorage.getItem('token'));
       res.subscribe(data => {
         console.log("cia kai nera userName");
         

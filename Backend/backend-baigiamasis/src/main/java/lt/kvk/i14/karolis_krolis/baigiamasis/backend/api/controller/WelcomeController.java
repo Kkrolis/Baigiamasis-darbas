@@ -20,7 +20,7 @@ public class WelcomeController {
 	@Autowired
 	private AuthenticationManager authenticationManager;
 
-	@GetMapping("/")
+	@GetMapping("/userName")
 	public String welcome(@RequestHeader("Authorization") String header) {
 		return jwtUtil.filterUserName(header);
 	}
