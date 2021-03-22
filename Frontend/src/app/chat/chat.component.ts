@@ -53,4 +53,12 @@ export class ChatComponent implements OnInit, OnDestroy {
       sendForm.controls.message.reset();
     }
   }
+
+  isSelf (userName: string) {
+    if (userName == localStorage.getItem("userName")) {
+      return "msg-self";
+    } else {
+      return "msg-remote";
+    }
+  }
 }
