@@ -39,12 +39,13 @@ export class SecurityComponent implements OnInit {
   public getAccessTokenAndLogin(authRequest) {
     let res = this.service.generateToken(authRequest);
     res.subscribe(data => {
-      this.accessApi(data); // this is only for testing porpuses
+      //this.accessApi(data); // this is only for testing porpuses
       this.token = data;
       if (data == "Invalid username or password") {
         this.openInvalidUserDialog();
       } else {
         localStorage.setItem('token', this.token);
+        this.accessApi(data);
       }
       this.router.navigate(['/main_page'], { relativeTo: this.route });  // navigates to another route, if used in antoher place doesn't work
     });

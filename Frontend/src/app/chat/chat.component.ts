@@ -17,6 +17,15 @@ export class ChatComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.webSocketService.openWebSocket();
+    if (localStorage.getItem('userName') === null) {
+      let res = this.service.welcome(localStorage.getItem('token'));
+      res.subscribe(data => {
+        this.userName = data;
+        localStorage.setItem('userName', this.userName);
+      });
+    } else {
+      this.userName = localStorage.getItem("userName");
+    }
   }
 
   ngOnDestroy(): void {
@@ -25,9 +34,11 @@ export class ChatComponent implements OnInit, OnDestroy {
 
   sendMessage(sendForm: NgForm) {
     // if segment is needed for cheking if userName exist in local storage 
-    if (localStorage.getItem('userName') === null) {
+    if (!localStorage.getItem('userName') === null) {
       let res = this.service.welcome(localStorage.getItem('token'));
       res.subscribe(data => {
+        console.log("cia kai nera userName");
+        
         this.userName = data;
         localStorage.setItem('userName', this.userName);
         const chatMessageDto: ChatMessageDto = new ChatMessageDto(this.userName, sendForm.value.message);
@@ -35,6 +46,8 @@ export class ChatComponent implements OnInit, OnDestroy {
         sendForm.controls.message.reset();
       })
     } else {
+      console.log("cia kai veikia" + this.userName);
+      
       const chatMessageDto: ChatMessageDto = new ChatMessageDto(this.userName, sendForm.value.message);
       this.webSocketService.sendMessage(chatMessageDto);
       sendForm.controls.message.reset();
