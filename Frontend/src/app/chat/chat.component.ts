@@ -37,7 +37,7 @@ export class ChatComponent implements OnInit, OnDestroy {
     if (!localStorage.getItem('userName') === null) {
       let res = this.service.getUserName(localStorage.getItem('token'));
       res.subscribe(data => {
-        console.log("cia kai nera userName");
+        //console.log("cia kai nera userName");
         
         this.userName = data;
         localStorage.setItem('userName', this.userName);
@@ -46,7 +46,7 @@ export class ChatComponent implements OnInit, OnDestroy {
         sendForm.controls.message.reset();
       })
     } else {
-      console.log("cia kai veikia" + this.userName);
+      //console.log("cia kai veikia" + this.userName);
       
       const chatMessageDto: ChatMessageDto = new ChatMessageDto(this.userName, sendForm.value.message);
       this.webSocketService.sendMessage(chatMessageDto);

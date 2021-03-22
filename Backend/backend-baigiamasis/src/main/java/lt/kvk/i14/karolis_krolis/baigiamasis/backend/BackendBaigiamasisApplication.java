@@ -17,6 +17,8 @@ public class BackendBaigiamasisApplication {
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/api/*").allowedHeaders("*").allowedOriginPatterns("*")
 				.allowedMethods("*").allowCredentials(true);
+				registry.addMapping("/api/user/*").allowedHeaders("*").allowedOriginPatterns("*")
+						.allowedMethods("*").allowCredentials(true);
 			}
 		};
 	}
