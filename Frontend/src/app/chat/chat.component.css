@@ -60,13 +60,17 @@ body {
 .chat-window {
     flex: auto;
     max-height: calc(100% - 60px);
-    background: #2f323b;
+    /* background: #2f323b; */
+    background-color: rgba(255, 255, 255, .2);  
+    backdrop-filter: blur(100px);
     overflow: auto;
 }
 .chat-input {
     flex: 0 0 auto;
     height: 60px;
-    background: #40434e;
+    /* background: #40434e; */
+    background-color: rgba(255, 255, 255, .2);  
+    backdrop-filter: blur(100px);
     border-top: 1px solid #2671ff;
     box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
 }
@@ -76,17 +80,21 @@ body {
     outline: 0 none;
     border: none;
     width: calc(100% - 60px);
-    color: white;
+    /* color: white; */
     text-indent: 10px;
     font-size: 12pt;
     padding: 0;
-    background: #40434e;
+    /* background: #40434e; */
+    background-color: rgba(255, 255, 255, .2);  
+    backdrop-filter: blur(100px);
+
+    display: inline;
 }
 .chat-input button {
     float: right;
     outline: 0 none;
     border: none;
-    background: rgba(255,255,255,.25);
+    /* background: rgba(255,255,255,.25); */
     height: 40px;
     width: 40px;
     border-radius: 50%;
@@ -172,4 +180,14 @@ body {
 }
 .msg-self .timestamp {
     text-align: right;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus {
+    background-color: #ffcc66;
+    border-color: #ffcc66;
+    color: black;
 }
