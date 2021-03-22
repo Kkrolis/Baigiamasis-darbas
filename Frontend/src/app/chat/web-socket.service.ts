@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ChatMessageDto } from '../models/chatMessageDto';
 
+import { GlobalConstants } from '../global-constants';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -9,10 +11,12 @@ export class WebSocketService {
   webSocket: WebSocket;
   chatMessages: ChatMessageDto[] = [];
 
+  apiUrl = GlobalConstants.webSocketUrl;
+
 constructor() { }
 
   public openWebSocket(){
-    this.webSocket = new WebSocket('ws://localhost:8080/chat');
+    this.webSocket = new WebSocket(this.apiUrl + "/chat");
 
     this.webSocket.onopen = (event) => {
       console.log('Open: ', event);

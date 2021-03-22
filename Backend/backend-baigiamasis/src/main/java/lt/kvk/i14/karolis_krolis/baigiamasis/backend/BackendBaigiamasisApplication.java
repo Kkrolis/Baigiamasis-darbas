@@ -15,7 +15,7 @@ public class BackendBaigiamasisApplication {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/*").allowedHeaders("*").allowedOriginPatterns("*")
+				registry.addMapping("/api/*").allowedHeaders("*").allowedOriginPatterns("*")
 				.allowedMethods("*").allowCredentials(true);
 			}
 		};

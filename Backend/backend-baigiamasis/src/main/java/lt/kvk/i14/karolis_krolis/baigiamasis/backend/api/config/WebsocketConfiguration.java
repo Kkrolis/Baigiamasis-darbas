@@ -17,7 +17,7 @@ import lt.kvk.i14.karolis_krolis.baigiamasis.backend.api.service.ChatWebSocketHa
 @EnableWebSocket
 public class WebsocketConfiguration implements WebSocketConfigurer{
 
-	private final static String CHAT_ENDPOINT = "/chat";
+	private final static String CHAT_ENDPOINT = "api/chat";
 	
 	@Override
 	public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {

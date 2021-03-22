@@ -6,7 +6,7 @@ import { AuthGuardService as AuthGuard } from './security/auth-guard.service';
 import { RegistrationComponent } from './registration/registration.component';
 
 const routes: Routes = [
-  //{ path: ' ', redirectTo: 'login', pathMatch: 'full'},
+  { path: '', redirectTo: 'login', pathMatch: 'full'},
   { path: 'login', component: SecurityComponent},
   { path: 'registration', component: RegistrationComponent},
   { path: 'main_page', component: MainPageComponent, canActivate: [AuthGuard]}

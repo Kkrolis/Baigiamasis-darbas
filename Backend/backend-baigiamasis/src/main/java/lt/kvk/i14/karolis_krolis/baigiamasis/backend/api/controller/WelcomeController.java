@@ -3,16 +3,13 @@ package lt.kvk.i14.karolis_krolis.baigiamasis.backend.api.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import lt.kvk.i14.karolis_krolis.baigiamasis.backend.api.entity.AuthRequest;
 import lt.kvk.i14.karolis_krolis.baigiamasis.backend.api.util.JwtUtil;
 
-@RestController
+@RestController()
+@RequestMapping("/api")
 public class WelcomeController {
 	
 	@Autowired
@@ -26,9 +23,9 @@ public class WelcomeController {
 	}
 	
 	@GetMapping("/joke")
-	public String joke(@RequestHeader("Authorization") String header) {
+	public String joke() {
 		
-		return "This is a joke " + jwtUtil.filterUserName(header);
+		return "This is a joke ";
 	}
 	
 	@PostMapping("/auth")
