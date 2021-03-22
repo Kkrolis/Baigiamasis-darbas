@@ -15,6 +15,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LogoutDialogComponent } from './dialogs/logout-dialog/logout-dialog.component';
 import { InvalidLoginComponent } from './dialogs/invalid-login/invalid-login.component';
 import { UserMenuComponent } from './menus/user-menu/user-menu.component';
+import { SidenavComponent } from './menus/sidenav/sidenav.component';
 
 import { FormsModule } from '@angular/forms';
 import { from } from 'rxjs';
@@ -42,7 +43,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     RegistrationComponent,
     LogoutDialogComponent,
     InvalidLoginComponent,
-    UserMenuComponent
+    UserMenuComponent,
+    SidenavComponent
    ],
   imports: [
     BrowserModule,

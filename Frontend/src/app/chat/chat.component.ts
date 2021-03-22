@@ -1,8 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { JwtClientService } from '../jwt-client.service';
 import { ChatMessageDto } from '../models/chatMessageDto';
 import { WebSocketService } from './web-socket.service';
+import {MatAccordion} from '@angular/material/expansion';
 
 @Component({
   selector: 'app-chat',
@@ -11,7 +12,10 @@ import { WebSocketService } from './web-socket.service';
 })
 export class ChatComponent implements OnInit, OnDestroy {
 
+  @ViewChild(MatAccordion) accordion: MatAccordion;
+
   userName: any = localStorage.getItem('userName');
+  panelOpenState = false
 
   constructor(public webSocketService: WebSocketService, private service: JwtClientService) { }
 
