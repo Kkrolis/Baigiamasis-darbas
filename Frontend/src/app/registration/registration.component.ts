@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { UserDto } from '../models/userDto';
 import { UserService } from '../services/user.service';
 
 @Component({

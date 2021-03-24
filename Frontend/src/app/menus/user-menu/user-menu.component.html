@@ -1,6 +1,12 @@
 <button class="btn btn-primary" id="User" type="button" [matMenuTriggerFor]="UserMenu">{{userName}}</button>
 
 <mat-menu #UserMenu>
-    <button mat-menu-item>test item 1 </button>
-    <button mat-menu-item>Test item 2</button>
+    <button mat-menu-item [matMenuTriggerFor]="AddressBook">Adresų knyga</button>
+    <button mat-menu-item>Test item e2</button>
+</mat-menu>
+
+<mat-menu #AddressBook class="address-book">
+    <div *ngFor="let item of users">
+        <button class="btn btn-primary address-book-btn" type="button" (click)="getId(item.id)">{{item.userName}}</button>
+    </div>
 </mat-menu>

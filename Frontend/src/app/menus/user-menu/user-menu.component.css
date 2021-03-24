@@ -12,3 +12,13 @@
     margin-left: 1rem;
     margin-right: 1rem;
 }
+
+.address-book-btn {
+    width: 100%;
+    background-color: white;
+    border-color: white;
+}
+
+.address-book {
+    background-color: #ffcc66;
+}

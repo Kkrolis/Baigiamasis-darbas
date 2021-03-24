@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { GlobalConstants } from '../global-constants';
 import { UserDto } from '../models/userDto';
@@ -21,5 +21,11 @@ export class UserService {
         resolve(response);
       });
     }) 
+  }
+
+  public getUsers () {
+    let tokenStr: string = 'Bearer ' + localStorage.getItem('token');
+    const headers = new HttpHeaders().set("Authorization", tokenStr);
+    return this.http.get(this.apiUrl + "/user/users", {headers});
   }
 }

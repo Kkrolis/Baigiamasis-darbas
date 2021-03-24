@@ -186,7 +186,11 @@ body {
 .btn-primary:hover,
 .btn-primary:active,
 .btn-primary:visited,
-.btn-primary:focus {
+.btn-primary:focus,
+.btn:hover,
+.btn:active,
+.btn:visited,
+.btn:focus {
     background-color: #ffcc66;
     border-color: #ffcc66;
     color: black;
