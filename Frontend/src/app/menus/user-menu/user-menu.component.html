@@ -7,6 +7,6 @@
 
 <mat-menu #AddressBook class="address-book">
     <div *ngFor="let item of users">
-        <button class="btn btn-primary address-book-btn" type="button" (click)="getId(item.id)">{{item.userName}}</button>
+        <button class="btn btn-primary address-book-btn" type="button" (click)="getId(item.userName)">{{item.userName}}</button>
     </div>
 </mat-menu>

@@ -1,14 +1,12 @@
 package lt.kvk.i14.karolis_krolis.baigiamasis.backend.api.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -24,5 +22,8 @@ public class User {
 	private String lastName;
 	private String userPassword;
 	private String userEmail;
+
+//	@OneToMany(mappedBy = "user")
+//	private List<LoanPost> loanPosts;
 	
 }

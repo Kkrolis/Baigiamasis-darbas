@@ -36,9 +36,8 @@ export class UserMenuComponent implements OnInit {
     console.log(this.users);
   }
 
-  getId (id) {
-    console.log(id);
-    
+  getId (user) {
+    localStorage.setItem("destination", user)
   }
 
 }

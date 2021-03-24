@@ -15,6 +15,7 @@ export class ChatComponent implements OnInit, OnDestroy {
   @ViewChild(MatAccordion) accordion: MatAccordion;
 
   userName: any = localStorage.getItem('userName');
+  destination: any = localStorage.getItem('destination');
   panelOpenState = false
 
   constructor(public webSocketService: WebSocketService, private service: JwtClientService) { }
@@ -45,14 +46,14 @@ export class ChatComponent implements OnInit, OnDestroy {
         
         this.userName = data;
         localStorage.setItem('userName', this.userName);
-        const chatMessageDto: ChatMessageDto = new ChatMessageDto(this.userName, sendForm.value.message);
+        const chatMessageDto: ChatMessageDto = new ChatMessageDto(this.userName, sendForm.value.message, this.destination);
         this.webSocketService.sendMessage(chatMessageDto);
         sendForm.controls.message.reset();
       })
     } else {
       //console.log("cia kai veikia" + this.userName);
       
-      const chatMessageDto: ChatMessageDto = new ChatMessageDto(this.userName, sendForm.value.message);
+      const chatMessageDto: ChatMessageDto = new ChatMessageDto(this.userName, sendForm.value.message, this.destination);
       this.webSocketService.sendMessage(chatMessageDto);
       sendForm.controls.message.reset();
     }
@@ -63,6 +64,16 @@ export class ChatComponent implements OnInit, OnDestroy {
       return "msg-self";
     } else {
       return "msg-remote";
+    }
+  }
+
+  showMessage(message: ChatMessageDto) {
+    if(message.destination == this.userName){
+console.log("arrived to " + message.destination);
+
+    } else {
+      console.log("didint arrived to " + message.destination);
+
     }
   }
 }
