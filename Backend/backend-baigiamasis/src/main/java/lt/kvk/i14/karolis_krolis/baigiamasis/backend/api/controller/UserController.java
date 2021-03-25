@@ -25,16 +25,16 @@ public class UserController {
 
     @GetMapping("/users")
     List<User> allUsersOnlyIdAndUserName (@RequestHeader("Authorization") String header) {
-        List<User> users = new ArrayList<>();
-        List<Object> objArr = repository.getAllUsersOnlyIdAndUserName();
-        for (Object obj : objArr)
-        {
-            Object[] objList = (Object[])obj;
-            User user = new User();
-            user.setId((Integer) objList[0]);
-            user.setUserName((String) objList[1]);
-            users.add(user);
-        }
-        return users;
+//        List<User> users = new ArrayList<>();
+//        List<Object> objArr = repository.getAllUsersOnlyIdAndUserName();
+//        for (Object obj : objArr)
+//        {
+//            Object[] objList = (Object[])obj;
+//            User user = new User();
+//            user.setId((Integer) objList[0]);
+//            user.setUserName((String) objList[1]);
+//            users.add(user);
+//        }
+        return repository.findAll();
     }
 }

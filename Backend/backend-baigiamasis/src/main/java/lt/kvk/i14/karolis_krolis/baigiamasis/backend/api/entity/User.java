@@ -2,6 +2,7 @@ package lt.kvk.i14.karolis_krolis.baigiamasis.backend.api.entity;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,7 @@ public class User {
 	private String userName;
 	private String firstName;
 	private String lastName;
+	@JsonIgnore
 	private String userPassword;
 	private String userEmail;
 
