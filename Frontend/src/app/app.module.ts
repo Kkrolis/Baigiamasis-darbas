@@ -28,6 +28,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { LoanPostsPageComponent } from './loan-posts-page/loan-posts-page.component';
 
 
 
@@ -44,7 +45,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     LogoutDialogComponent,
     InvalidLoginComponent,
     UserMenuComponent,
-    SidenavComponent
+    SidenavComponent,
+    LoanPostsPageComponent
    ],
   imports: [
     BrowserModule,

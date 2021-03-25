@@ -4,12 +4,14 @@ import { SecurityComponent } from './security/security.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { AuthGuardService as AuthGuard } from './security/auth-guard.service';
 import { RegistrationComponent } from './registration/registration.component';
+import { LoanPostsPageComponent } from './loan-posts-page/loan-posts-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
   { path: 'login', component: SecurityComponent},
   { path: 'registration', component: RegistrationComponent},
-  { path: 'main_page', component: MainPageComponent, canActivate: [AuthGuard]}
+  { path: 'main_page', component: MainPageComponent, canActivate: [AuthGuard]},
+  { path: 'loan_posts', component: LoanPostsPageComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

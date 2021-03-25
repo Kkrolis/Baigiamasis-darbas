@@ -17,6 +17,7 @@ public class LoanPost {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int loanPostId;
     private BigDecimal ammount;
+    @Column(length = 9999)
     private String reason;
     private String timestamp;
     private String intrest;
