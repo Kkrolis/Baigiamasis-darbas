@@ -1,0 +1,21 @@
+.loan-post-table{
+    margin: 10%;
+}
+
+.loan-post-table-rows{
+    border-radius: 25px;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus,
+.btn:hover,
+.btn:active,
+.btn:visited,
+.btn:focus {
+    background-color: #ffcc66;
+    border-color: #ffcc66;
+    color: black;
+}

@@ -9,6 +9,9 @@ import { LoanPostService } from '../services/loan-post.service';
 export class LoanPostsPageComponent implements OnInit {
 
   posts: any;
+  tableHeaders = ['Id', 'Kiekis', 'Paskolos tikslas', 'Skelbimo idejimo data', 'Palūkanų kiekis', 'Kokiam laikotarpiui', ''];
+
+
 
   constructor(public service: LoanPostService) { }
 

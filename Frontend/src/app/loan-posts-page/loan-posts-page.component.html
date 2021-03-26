@@ -1,9 +1,42 @@
 <app-navbar></app-navbar>
 
-<div *ngFor="let item of posts">
-<li>
-    <p>{{item.reason}}</p>
-    <p>{{item.user.userName}}</p>
-</li>
+<div class="table-responsive loan-post-table">
+<table class="table table-striped table-light table-sm">
+    <thead>
+    <tr>
+        <th *ngFor="let column of tableHeaders" scope="col" >
+            {{column}}
+        </th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor = "let row of posts" class="loan-post-table-rows">
+        <td scope="row">
+            {{row.loanPostId}}
+        </td>
+        <td>
+            {{row.ammount}} $
+        </td>
+        <td>
+            {{row.reason}}
+        </td>
+        <td>
+            {{row.timestamp}}
+        </td>
+        <td>
+            {{row.intrest}}
+        </td>
+        <td>
+            {{row.duration}}
+        </td>
+        <td>
+            <button class="btn btn-primary address-book-btn" type="button">Daugiau info</button>
+        </td>
+    </tr>
+</tbody>
+</table>
+</div>
 
+<div class="row">
+    <app-chat></app-chat>
 </div>
