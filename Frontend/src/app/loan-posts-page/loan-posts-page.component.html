@@ -1,40 +1,71 @@
 <app-navbar></app-navbar>
 
 <div class="table-responsive loan-post-table">
-<table class="table table-striped table-light table-sm">
-    <thead>
-    <tr>
-        <th *ngFor="let column of tableHeaders" scope="col" >
-            {{column}}
-        </th>
-    </tr>
-</thead>
-<tbody>
-    <tr *ngFor = "let row of posts" class="loan-post-table-rows">
-        <td scope="row">
-            {{row.loanPostId}}
-        </td>
-        <td>
-            {{row.ammount}} $
-        </td>
-        <td>
-            {{row.reason}}
-        </td>
-        <td>
-            {{row.timestamp}}
-        </td>
-        <td>
-            {{row.intrest}}
-        </td>
-        <td>
-            {{row.duration}}
-        </td>
-        <td>
-            <button class="btn btn-primary address-book-btn" type="button">Daugiau info</button>
-        </td>
-    </tr>
-</tbody>
-</table>
+    <table class="table table-striped table-light table-sm">
+        <thead>
+            <tr>
+                <th *ngFor="let column of tableHeaders" scope="col">
+                    {{column}}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of posts" class="loan-post-table-rows">
+                <td scope="row">
+                    {{row.loanPostId}}
+                </td>
+                <td>
+                    {{row.ammount}} €
+                </td>
+                <td>
+                    {{row.reason}}
+                </td>
+                <td>
+                    {{row.timestamp}}
+                </td>
+                <td>
+                    {{row.intrest}}
+                </td>
+                <td>
+                    {{row.duration}}
+                </td>
+                <td>
+                    <button class="btn btn-primary address-book-btn" type="button">Daugiau info</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="row" *ngFor="let item of posts">
+    <div class="column">
+        <div class="card">
+            <div class="row divider">
+                <h5 class="col-sm-6">Paskolos ID</h5>
+                <h5 class="col-sm-6">{{item.loanPostId}}</h5>
+            </div>
+            <div class="row divider">
+                <p class="col-sm-6">Paskolos kiekis</p>
+                <p class="col-sm-6">{{item.ammount}} €</p>
+            </div>
+            <div class="row divider">
+                <p class="col-sm-6">Paskolos tikslas</p>
+                <p class="col-sm-6">{{item.reason}}</p>
+            </div>
+            <div class="row divider">
+                <p class="col-sm-6">Paskolos paskelbimo data</p>
+                <p class="col-sm-6">{{item.timestamp}}</p>
+            </div>
+            <div class="row divider">
+                <p class="col-sm-6">Palūkanų kiekis</p>
+                <p class="col-sm-6">{{item.intrest}}</p>
+            </div>
+            <div class="row">
+                <p class="col-sm-6">Paskolos trukmė</p>
+                <p class="col-sm-6">{{item.duration}}</p>
+            </div>
+        </div>
+
+    </div>
 </div>
 
 <div class="row">
