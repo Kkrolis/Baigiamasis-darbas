@@ -36,8 +36,11 @@
         </tbody>
     </table>
 </div>
-<div class="row" *ngFor="let item of posts">
-    <div class="column">
+
+
+<div class="row" >
+    <div *ngFor="let item of posts">
+    <div class="">
         <div class="card">
             <div class="row divider">
                 <h5 class="card-lable col-sm-6">Paskolos ID</h5>
@@ -64,7 +67,7 @@
                 <p class="crad-value col-sm-6">{{item.duration}}</p>
             </div>
         </div>
-
+    </div>
     </div>
 </div>
 

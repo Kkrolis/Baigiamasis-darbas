@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { RegistrationSuccesComponent } from '../dialogs/registration-succes/registration-succes.component';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -9,7 +11,7 @@ import { UserService } from '../services/user.service';
 })
 export class RegistrationComponent implements OnInit {
 
-  constructor(private service: UserService) { }
+  constructor(private service: UserService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -31,6 +33,15 @@ export class RegistrationComponent implements OnInit {
     this.authRequeast.userEmail = sendForm.value.email;
     // let user = new UserDto(sendForm.value.usertName, sendForm.value.firstName, sendForm.value.lastName, sendForm.value.password, sendForm.value.email)
     this.service.postUser(this.authRequeast);
+  }
+
+  public openRegistrationSuccesDialog() {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    this.dialog.open(RegistrationSuccesComponent, dialogConfig);
   }
 
 }

@@ -16,6 +16,7 @@ import { LogoutDialogComponent } from './dialogs/logout-dialog/logout-dialog.com
 import { InvalidLoginComponent } from './dialogs/invalid-login/invalid-login.component';
 import { UserMenuComponent } from './menus/user-menu/user-menu.component';
 import { SidenavComponent } from './menus/sidenav/sidenav.component';
+import { LoanPostsPageComponent } from './loan-posts-page/loan-posts-page.component';
 
 import { FormsModule } from '@angular/forms';
 import { from } from 'rxjs';
@@ -28,7 +29,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import { LoanPostsPageComponent } from './loan-posts-page/loan-posts-page.component';
+import { RegistrationSuccesComponent } from './dialogs/registration-succes/registration-succes.component';
+
 
 
 
@@ -46,7 +48,8 @@ import { LoanPostsPageComponent } from './loan-posts-page/loan-posts-page.compon
     InvalidLoginComponent,
     UserMenuComponent,
     SidenavComponent,
-    LoanPostsPageComponent
+    LoanPostsPageComponent,
+    RegistrationSuccesComponent
    ],
   imports: [
     BrowserModule,

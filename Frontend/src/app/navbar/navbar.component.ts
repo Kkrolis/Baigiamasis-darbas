@@ -33,22 +33,7 @@ export class NavbarComponent implements OnInit {
               
             }
           });
-
     }
-
-    // if (!localStorage.getItem("token") === null) {
-    //   console.log("token exists");
-      
-    //   this.service.checkIfTokenExpired(localStorage.getItem("token")).subscribe((response: Response) => {
-    //     this.isTokenExpired = response;
-    //     if (!this.isTokenExpired) {
-    //       localStorage.removeItem("token");
-    //       localStorage.removeItem("userName");
-    //       console.log("tokens cleared");
-          
-    //     }
-    //   });
-    // }
   }
 
   openDialog() {

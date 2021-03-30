@@ -17,9 +17,11 @@ export class LoanPostsPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getPosts()
-    .subscribe((respose: Response) => {
-      //console.log(data);
-      this.posts = respose;
-  });
-}
+      .subscribe((respose: Response) => {
+        //console.log(data);
+        this.posts = respose;
+      });
+  }
+
+  
 }
