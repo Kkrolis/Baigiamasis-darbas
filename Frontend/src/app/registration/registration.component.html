@@ -6,12 +6,20 @@
             <div class="col-sm-7 login-input d-flex justify-content-center">
                 <input type="text" class="form-control" name="firstName" id="Name" #Name ngModel>
             </div>
+            <div class="row vallidators" id="wrongName">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-7 d-flex justify-content-left"><p>Įveskite Varda</p></div>
+            </div>
         </div>
 
         <div class="form-group row">
             <label for="lastName" class="col-sm-3 col-form-label d-flex justify-content-center">Pavardė</label>
             <div class="col-sm-7 login-input d-flex justify-content-center">
                 <input type="text" class="form-control" name="lastName" id="lastName" #lastName ngModel>
+            </div>
+            <div class="row vallidators" id="wrongLastName">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-7 d-flex justify-content-left"><p>Įveskite Pavardę</p></div>
             </div>
         </div>
 
@@ -20,12 +28,24 @@
             <div class="col-sm-7 login-input d-flex justify-content-center">
                 <input type="text" class="form-control" name="userName" id="userName" #userName ngModel>
             </div>
+            <div class="row vallidators" id="noUserName">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-7 d-flex justify-content-left"><p>Įveskite slapyvardi</p></div>
+            </div>
+            <div class="row vallidators" id="existingUserName">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-7 d-flex justify-content-left"><p>Toks naudotojas jau egzistuoja</p></div>
+            </div>
         </div>
 
         <div class="form-group row">
             <label for="email" class="col-sm-3 col-form-label d-flex justify-content-center">Elektroninis paštas</label>
             <div class="col-sm-7 login-input d-flex justify-content-center">
                 <input type="email" class="form-control" name="email" id="email" #email ngModel>
+            </div>
+            <div class="row vallidators" id="wrongEmail">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-7 d-flex justify-content-left"><p>Įveskite tinkama elektroninį paštą</p></div>
             </div>
         </div>
 
@@ -34,6 +54,10 @@
             <div class="col-sm-7 login-input d-flex justify-content-center">
                 <input type="password" class="form-control" name="password" id=password #password ngModel>
             </div>
+            <div class="row vallidators" id="noPassword">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-7 d-flex justify-content-left"><p>Įveskite slaptažodį</p></div>
+            </div>
         </div>
 
         <div class="form-group row">
@@ -41,11 +65,15 @@
             <div class="col-sm-7 login-input d-flex justify-content-center">
                 <input type="password" class="form-control" name="paasswordConfirm" id=passwordConfirm #password ngModel>
             </div>
+            <div class="row vallidators" id="wrongConfirmPass">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-7 d-flex justify-content-left"><p>Slaptažodžiai nesutampa</p></div>
+            </div>
         </div>
 
         <div class="form-group row">
             <div class="d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary mb-2 my-3" (click)="openRegistrationSuccesDialog()">Registruotis</button>
+                <button type="submit" class="btn btn-primary mb-2 my-3">Registruotis</button>
             </div>
         </div>
     </form>

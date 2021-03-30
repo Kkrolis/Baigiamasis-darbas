@@ -25,6 +25,10 @@ export class RegistrationComponent implements OnInit {
   }
 
   public register(sendForm: NgForm){
+
+    if (!this.validateForm(sendForm)) {
+      
+   
     // console.log("it is working " +  sendForm.value.firstName);
     this.authRequeast.userName = sendForm.value.userName;
     this.authRequeast.firstName = sendForm.value.firstName;
@@ -33,6 +37,9 @@ export class RegistrationComponent implements OnInit {
     this.authRequeast.userEmail = sendForm.value.email;
     // let user = new UserDto(sendForm.value.usertName, sendForm.value.firstName, sendForm.value.lastName, sendForm.value.password, sendForm.value.email)
     this.service.postUser(this.authRequeast);
+    this.openRegistrationSuccesDialog();
+
+    };
   }
 
   public openRegistrationSuccesDialog() {
@@ -43,5 +50,30 @@ export class RegistrationComponent implements OnInit {
 
     this.dialog.open(RegistrationSuccesComponent, dialogConfig);
   }
+  public validateForm(sendForm: NgForm) {
+    const wrongName = document.getElementById("wrongName");
+    const wrongLastName = document.getElementById("wrongLastName");
+    const noUserName = document.getElementById("noUserName");
+    const existingUserName = document.getElementById("existingUserName");
+    const wrongEmail = document.getElementById("wrongEmail");
+    const noPassword = document.getElementById("noPassword");
+    const wrongConfirmPass = document.getElementById("wrongConfirmPass");
+
+    let badForm: boolean = false;
+    if (sendForm.value.firstName === "") {
+      badForm = true;
+      wrongName.style.display = 'contents';
+    } else {wrongName.style.display = 'none';}
+
+    if (sendForm.value.wrongLastName === "") {
+      badForm = true;
+      wrongLastName.style.display = 'contents';
+    } else {wrongLastName.style.display = 'none';}
+    
+
+    return badForm;
+  }
 
 }
+
+

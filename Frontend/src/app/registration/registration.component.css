@@ -7,3 +7,17 @@
     border-color: #ffcc66;
     color: black;
 }
+
+.vallidators{
+    padding-left: 25px;
+    color: red;
+    display: none;
+}
+
+#wrongName{}
+#wrongLastName{}
+#noUserName{}
+#existingUserName{}
+#wrongEmail{}
+#noPassword{}
+#wrongConfirmPass{}
