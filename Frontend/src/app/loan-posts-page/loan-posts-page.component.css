@@ -65,3 +65,11 @@
   .divider {
       border-bottom: 3px solid #bbb;
   }
+
+  .card-lable {
+    text-align: left;
+  }
+
+  .crad-value {
+    text-align: right;
+  }

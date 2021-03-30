@@ -32,7 +32,7 @@ public class JwtUtil {
         return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
     }
 
-    private Boolean isTokenExpired(String token) {
+    public Boolean isTokenExpired(String token) {
         return extractExpiration(token).before(new Date());
     }
 
@@ -62,4 +62,12 @@ public class JwtUtil {
 		}
 		return userName;
 	}
+
+	public String extracktToken(String header) {
+        String token = null;
+        if (header != null && header.startsWith("Bearer ")) {
+            token = header.substring(7);
+        }
+        return token;
+    }
 }
