@@ -75,7 +75,7 @@ export class RegistrationComponent implements OnInit {
       noUserName.style.display = 'contents';
     } else {noUserName.style.display = 'none';}
 
-    if (sendForm.value.email === "") {
+    if (sendForm.value.email === "" || !validateEmail(sendForm.value.email)) {
       badForm = true;
       wrongEmail.style.display = 'contents';
     } else {wrongEmail.style.display = 'none';}
@@ -93,5 +93,8 @@ export class RegistrationComponent implements OnInit {
   }
 
 }
-
+function validateEmail(email): boolean {
+  const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+  return re.test(String(email).toLowerCase());
+}
 
