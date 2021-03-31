@@ -65,12 +65,30 @@ export class RegistrationComponent implements OnInit {
       wrongName.style.display = 'contents';
     } else {wrongName.style.display = 'none';}
 
-    if (sendForm.value.wrongLastName === "") {
+    if (sendForm.value.lastName === "") {
       badForm = true;
       wrongLastName.style.display = 'contents';
     } else {wrongLastName.style.display = 'none';}
-    
 
+    if (sendForm.value.userName === "") {
+      badForm = true;
+      noUserName.style.display = 'contents';
+    } else {noUserName.style.display = 'none';}
+
+    if (sendForm.value.email === "") {
+      badForm = true;
+      wrongEmail.style.display = 'contents';
+    } else {wrongEmail.style.display = 'none';}
+
+    if (sendForm.value.password === "") {
+      badForm = true;
+      noPassword.style.display = 'contents';
+    } else {noPassword.style.display = 'none';}
+
+    if (sendForm.value.passwordConfirm !== sendForm.value.password) {
+      badForm = true;
+      wrongConfirmPass.style.display = 'contents';
+    } else {wrongConfirmPass.style.display = 'none';}
     return badForm;
   }
 
