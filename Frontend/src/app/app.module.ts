@@ -30,6 +30,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { RegistrationSuccesComponent } from './dialogs/registration-succes/registration-succes.component';
+import { AddNewLoanPostComponent } from './add-new-loan-post/add-new-loan-post.component';
 
 
 
@@ -49,7 +50,8 @@ import { RegistrationSuccesComponent } from './dialogs/registration-succes/regis
     UserMenuComponent,
     SidenavComponent,
     LoanPostsPageComponent,
-    RegistrationSuccesComponent
+    RegistrationSuccesComponent,
+    AddNewLoanPostComponent
    ],
   imports: [
     BrowserModule,

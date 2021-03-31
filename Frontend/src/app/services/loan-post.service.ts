@@ -18,4 +18,13 @@ export class LoanPostService {
     const headers = new HttpHeaders().set("Authorization", tokenStr);
     return this.http.get(this.apiUrl + "/loanPost/", {headers});
   }
+
+  public postLoanPost (request) {
+    return new Promise((resolve, reject) => {
+      this.http.post(this.apiUrl + "/loanPosts/addPost", request, {...request})
+      .subscribe((resposnse: any) => {
+        resolve(resposnse);
+      });
+    });
+  }
 }

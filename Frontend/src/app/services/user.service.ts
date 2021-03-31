@@ -12,7 +12,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   public postUser(request) {
-    console.log("service is working");
+    // console.log("service is working");
     
     return new Promise ((resolve, reject) => {
       this.http.post(this.apiUrl + "/user/register", request, {...request})
