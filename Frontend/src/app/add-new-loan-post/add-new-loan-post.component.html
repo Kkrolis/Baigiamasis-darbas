@@ -15,7 +15,10 @@
         <div class="form-group row">
             <label for="loanReason" class="col-sm-4 col-form-label d-flex justify-content-center">Paskolos paskirtis</label>
             <div class="col-sm-8 login-input d-flex justify-content-center">
-                <input type="text" class="form-control" name="loanReason" id="loanReason" #loanReason ngModel>
+                <!-- <input type="text" class="form-control" name="loanReason" id="loanReason" #loanReason ngModel> -->
+                <select class="form-select" aria-label="Paskolos Paskirtis" name="loanReason" id="loanReason" #loanReason ngModel>
+                    <option *ngFor="let item of reasons" value="{{item.reasonId}}">{{item.reasonName}}</option>
+                </select>
             </div>
         </div>
 

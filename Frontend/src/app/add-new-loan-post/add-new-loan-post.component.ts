@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { LoanReasonService } from '../services/loan-reason.service';
 
 
 @Component({
@@ -9,9 +10,16 @@ import { NgForm } from '@angular/forms';
 })
 export class AddNewLoanPostComponent implements OnInit {
 
-  constructor() { }
+  reasons: any;
+
+  constructor(public service: LoanReasonService) { }
 
   ngOnInit(): void {
+    this.service.getLoanReasones()
+    .subscribe((respose: Response) => {
+      //console.log(data);
+      this.reasons = respose;
+    });
   }
 
   submitForm(form: NgForm) {
