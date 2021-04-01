@@ -23,16 +23,14 @@ export class NavbarComponent implements OnInit {
       
     } else {
       this.isLogedIn = false;
-      console.log("loged in");
-      this.service.checkIfTokenExpired(localStorage.getItem("token")).subscribe((response: Response) => {
-            this.isTokenExpired = response;
-            if (!this.isTokenExpired) {
-              console.log("tokens cleared");
-              localStorage.removeItem("token");
-              localStorage.removeItem("userName");
-              
-            }
-          });
+      // console.log("loged in");
+      // this.service.checkIfTokenExpired(localStorage.getItem("token")).subscribe((response: Response) => {
+      //       this.isTokenExpired = response;
+      //       if (!this.isTokenExpired) {
+      //         localStorage.removeItem("token");
+      //         localStorage.removeItem("userName");
+      //       }
+      //     });
     }
   }
 

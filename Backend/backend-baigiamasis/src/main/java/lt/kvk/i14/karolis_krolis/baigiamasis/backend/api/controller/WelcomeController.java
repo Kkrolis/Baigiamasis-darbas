@@ -40,10 +40,10 @@ public class WelcomeController {
 		return jwtUtil.generateToken(authRequest.getUserName());
 	}
 
-	@GetMapping("/isExpired")
-	public Boolean checkIfTokenIsExpired(@RequestHeader("Authorization") String header) {
-		System.out.println("this is working");
-		return jwtUtil.isTokenExpired(jwtUtil.extracktToken(header));
-	}
+//	@PostMapping("/isExpired")
+//	public Boolean checkIfTokenIsExpired(@RequestBody String header) {
+//		System.out.println("this is working");
+//		return jwtUtil.isTokenExpired(jwtUtil.extracktToken(header));
+//	}
 	
 }

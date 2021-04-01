@@ -26,7 +26,8 @@ export class SecurityComponent implements OnInit {
   constructor(private service: JwtClientService, private readonly router: Router, private readonly route: ActivatedRoute, private dialog: MatDialog) { }
 
   ngOnInit(): void {
-
+    localStorage.removeItem("token");
+    localStorage.removeItem("userName");
   }
 
   public login(userName, userPassword) {

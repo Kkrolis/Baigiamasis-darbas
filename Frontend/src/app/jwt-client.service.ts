@@ -28,10 +28,10 @@ export class JwtClientService {
     return !this.jwtHelper.isTokenExpired(token);
   }
 
-  public checkIfTokenExpired(token) {
-    let tokenStr: string = 'Bearer ' + localStorage.getItem('token');
-    const headers = new HttpHeaders().set("Authorization", tokenStr);
-    return this.http.get(this.apiUrl + "/isExpired", {headers, responseType: 'text' as 'json'});
-  }
+  // public checkIfTokenExpired(token) {
+  //   let tokenStr: string = 'Bearer ' + localStorage.getItem('token');
+  //   const headers = new HttpHeaders().set("Authorization", tokenStr);
+  //   return this.http.post(this.apiUrl + "/isExpired", tokenStr);
+  // }
 
 }
