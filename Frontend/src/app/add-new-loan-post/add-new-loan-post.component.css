@@ -8,3 +8,15 @@
     border-color: #ffcc66;
     color: black;
 }
+
+.contents-add-loan-post {
+    margin-top: 5%;
+}
+
+.form-group{
+    margin: 10px;
+}
+
+.loan-input{
+    max-height: 43px;
+}

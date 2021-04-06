@@ -27,4 +27,10 @@ export class UserService {
     const headers = new HttpHeaders().set("Authorization", tokenStr);
     return this.http.get(this.apiUrl + "/user/users", {headers});
   }
+
+  public getOneUser(userName: string) {
+    let tokenStr: string = 'Bearer ' + localStorage.getItem('token');
+    const headers = new HttpHeaders().set("Authorization", tokenStr);
+    return this.http.get(this.apiUrl + "/user/" + userName, {headers});
+  }
 }

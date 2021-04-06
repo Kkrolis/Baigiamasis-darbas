@@ -3,12 +3,12 @@
     
 
 <div class="row">
-<div class="col-sm-7">
+<div class="col-sm-7 contents-add-loan-post">
     <form (ngSubmit)="submitForm(AddNewPostform)" #AddNewPostform="ngForm">
         <div class="form-group row">
             <label for="loanAmmount" class="col-sm-4 col-form-label d-flex justify-content-center">Paskolos suma</label>
             <div class="col-sm-8 login-input d-flex justify-content-center">
-                <input type="number" class="form-control" name="loanAmmount" id="loanAmmount" #loanAmmount ngModel>
+                <input type="number" class="form-control loan-input" name="loanAmmount" id="loanAmmount" #loanAmmount ngModel>
             </div>
         </div>
 
@@ -16,7 +16,7 @@
             <label for="loanReason" class="col-sm-4 col-form-label d-flex justify-content-center">Paskolos paskirtis</label>
             <div class="col-sm-8 login-input d-flex justify-content-center">
                 <!-- <input type="text" class="form-control" name="loanReason" id="loanReason" #loanReason ngModel> -->
-                <select class="form-select" aria-label="Paskolos Paskirtis" name="loanReason" id="loanReason" #loanReason ngModel>
+                <select class="form-select loan-input" aria-label="Paskolos Paskirtis" name="loanReason" id="loanReason" #loanReason ngModel>
                     <option *ngFor="let item of reasons" value="{{item.reasonId}}">{{item.reasonName}}</option>
                 </select>
             </div>
@@ -25,14 +25,14 @@
         <div class="form-group row">
             <label for="intrest" class="col-sm-4 col-form-label d-flex justify-content-center">Palūkanos</label>
             <div class="col-sm-8 login-input d-flex justify-content-center">
-                <input type="number" class="form-control" name="intrest" id="intrest" #intrest ngModel>
+                <input type="number" class="form-control loan-input" name="intrest" id="intrest" #intrest ngModel>
             </div>
         </div>
 
         <div class="form-group row">
             <label for="duration" class="col-sm-4 col-form-label d-flex justify-content-center">Terminas</label>
             <div class="col-sm-8 login-input d-flex justify-content-center">
-                <input type="number" class="form-control" name="duration" id="duration" #duration ngModel>
+                <input type="number" class="form-control loan-input" name="duration" id="duration" #duration ngModel>
             </div>
         </div>
 

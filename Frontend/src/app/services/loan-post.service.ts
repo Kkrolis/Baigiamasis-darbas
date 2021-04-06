@@ -20,8 +20,10 @@ export class LoanPostService {
   }
 
   public postLoanPost (request) {
+    let tokenStr: string = 'Bearer ' + localStorage.getItem('token');
+    const headers = new HttpHeaders().set("Authorization", tokenStr);
     return new Promise((resolve, reject) => {
-      this.http.post(this.apiUrl + "/loanPosts/addPost", request, {...request})
+      this.http.post(this.apiUrl + "/loanPost/addPost", request, {...request, headers})
       .subscribe((resposnse: any) => {
         resolve(resposnse);
       });
