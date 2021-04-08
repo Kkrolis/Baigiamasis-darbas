@@ -15,6 +15,9 @@ public class BackendBaigiamasisApplication {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("http://localhost:4200/").allowedHeaders("*").allowedOriginPatterns("*")
+						.allowedMethods("*").allowCredentials(true);
+
 				registry.addMapping("/api/*").allowedHeaders("*").allowedOriginPatterns("*")
 				.allowedMethods("*").allowCredentials(true);
 				registry.addMapping("/api/user/*").allowedHeaders("*").allowedOriginPatterns("*")
@@ -24,6 +27,8 @@ public class BackendBaigiamasisApplication {
 				registry.addMapping("/api/loanPost/addPost").allowedHeaders("*").allowedOriginPatterns("*")
 						.allowedMethods("*").allowCredentials(true);
 				registry.addMapping("/api/loanReasons/*").allowedHeaders("*").allowedOriginPatterns("*")
+						.allowedMethods("*").allowCredentials(true);
+				registry.addMapping("/api/loanReasons/").allowedHeaders("*").allowedOriginPatterns("*")
 						.allowedMethods("*").allowCredentials(true);
 				registry.addMapping("/api/userName/*").allowedHeaders("*").allowedOriginPatterns("*")
 						.allowedMethods("*").allowCredentials(true);

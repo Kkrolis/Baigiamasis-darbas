@@ -20,6 +20,7 @@ export class AddNewLoanPostComponent implements OnInit {
   reasons: any;
   oneUser: any;
   reasonId: number;
+  oneReason: any;
 
   loanPost: any = {
     ammount: null,
@@ -47,14 +48,25 @@ export class AddNewLoanPostComponent implements OnInit {
   }
 
   submitForm(form: NgForm) {
-    // console.log(this.currentDate);
+    // console.log(form.value.loanReason);
     this.loanPost.ammount = form.value.loanAmmount;
-    this.loanPost.reason = form.value.loanReason;
+    // this.loanPost.reason = this.getOneReason(Number(form.value.loanReason));
+    this.loanPost.reason = this.reasons[form.value.loanReason];
+
     this.loanPost.timestamp = this.currentDate;
     this.loanPost.intrest = form.value.intrest;
     this.loanPost.durration = form.value.duration;
-    this.loanPost.user = this.oneUser.id;    
+    this.loanPost.user = this.oneUser;    
     this.loanPostService.postLoanPost(this.loanPost);
+  }
+
+  async getOneReason(id: number) {
+    await this.service.getOneReason(id).subscribe((response: Response) => {
+      this.oneReason = response;
+    });
+    console.log(this.oneReason.reasonName);
+    
+    return this.oneReason;
   }
 
 }

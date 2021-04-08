@@ -16,4 +16,10 @@ export class LoanReasonService {
     const headers = new HttpHeaders().set("Authorization", tokenStr);
     return this.http.get(this.apiUrl + "/loanReasons/", {headers});
   }
+
+  public getOneReason (id: number){
+    let tokenStr: string = 'Bearer ' + localStorage.getItem('token');
+    const headers = new HttpHeaders().set("Authorization", tokenStr);
+    return this.http.get(this.apiUrl + "/loanReasons/" + id, {headers});
+  }
 }
