@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-
+<div class="container">
 <div class="table-responsive loan-post-table">
     <table class="table table-striped table-light table-sm">
         <thead>
@@ -10,7 +10,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let row of posts" class="loan-post-table-rows">
+            <tr *ngFor="let row of posts; let i = index" class="loan-post-table-rows">
                 <td scope="row">
                     {{row.loanPostId}}
                 </td>
@@ -18,7 +18,7 @@
                     {{row.ammount}} €
                 </td>
                 <td>
-                    {{row.reason}}
+                    {{this.getReasonName(i)}}
                 </td>
                 <td>
                     {{row.timestamp}}
@@ -39,7 +39,7 @@
 
 
 <div class="row" >
-    <div *ngFor="let item of posts">
+    <div *ngFor="let item of posts; let i = index">
     <div class="">
         <div class="card">
             <div class="row divider">
@@ -52,7 +52,7 @@
             </div>
             <div class="row divider">
                 <p class="card-lable col-sm-6">Paskolos tikslas</p>
-                <p class="crad-value col-sm-6">{{item.reason}}</p>
+                <p class="crad-value col-sm-6">{{this.getReasonName(i)}}</p>
             </div>
             <div class="row divider">
                 <p class="card-lable col-sm-6">Paskolos paskelbimo data</p>
@@ -73,4 +73,5 @@
 
 <div class="row">
     <app-chat></app-chat>
+</div>
 </div>
