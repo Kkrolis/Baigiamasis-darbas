@@ -36,4 +36,9 @@ public class LoanPostController {
     List<LoanPost> returnAllLoanPosts (@RequestHeader("Authorization") String header) {
         return repository.findAll();
     }
+
+//    @GetMapping("/byUserId/{id}")
+//    List<LoanPost> getPostsByUserId (@RequestHeader("Authorization") String header, @PathVariable(value = "id") int id) {
+//        return repository.findLoanPostsByUserIds(id);
+//    }
 }

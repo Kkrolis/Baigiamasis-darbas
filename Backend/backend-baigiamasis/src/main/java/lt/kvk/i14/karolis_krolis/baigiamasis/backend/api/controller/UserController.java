@@ -2,6 +2,7 @@ package lt.kvk.i14.karolis_krolis.baigiamasis.backend.api.controller;
 
 import lt.kvk.i14.karolis_krolis.baigiamasis.backend.api.entity.User;
 import lt.kvk.i14.karolis_krolis.baigiamasis.backend.api.repository.UserRepository;
+import lt.kvk.i14.karolis_krolis.baigiamasis.backend.api.util.CreditScoreUtil;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +15,7 @@ import java.util.Optional;
 public class UserController {
 
     private final UserRepository repository;
+    private CreditScoreUtil creditScoreUtil = new CreditScoreUtil();
 
     public UserController(UserRepository repository) {
         this.repository = repository;
@@ -22,6 +24,9 @@ public class UserController {
     @PostMapping("/register")
     User addUser (@RequestBody User newUser) {
         System.out.println("this is working");
+        int defaultScore = 50;
+        newUser.setCreditScore(defaultScore);
+        newUser.setCreditGroup(creditScoreUtil.setCreditGroupe(defaultScore));
         return repository.save((newUser));
     }
 

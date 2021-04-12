@@ -25,6 +25,8 @@ public class User {
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	private String userPassword;
 	private String userEmail;
+	private int creditScore;
+	private String creditGroup;
 
 //	@OneToMany(mappedBy = "user")
 //	private List<LoanPost> loanPosts;
