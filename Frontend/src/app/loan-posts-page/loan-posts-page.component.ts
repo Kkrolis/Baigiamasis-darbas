@@ -40,5 +40,11 @@ export class LoanPostsPageComponent implements OnInit {
     return "Ivyko klaida";
   }
 
+  isFirstActive(i: number){
+    if (i == 0) {
+      return "active";
+    }
+  }
+
   
 }
