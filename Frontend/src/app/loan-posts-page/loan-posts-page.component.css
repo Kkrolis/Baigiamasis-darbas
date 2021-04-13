@@ -73,3 +73,19 @@
   .crad-value {
     text-align: right;
   }
+  
+  .loan-post-cards{
+    margin-top: 60px;
+  }
+
+  @media only screen and (max-width: 992px){
+    .loan-post-table{
+      display: none;
+    }
+  }
+
+  @media only screen and (min-width: 992px){
+    .loan-post-cards{
+      display: none;
+    }
+  }

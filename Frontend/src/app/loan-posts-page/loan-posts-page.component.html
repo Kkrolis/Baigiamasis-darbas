@@ -38,7 +38,7 @@
     </div>
 
 
-    <div class="container">
+    <div class="container loan-post-cards">
         <div class="row">
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
@@ -46,8 +46,8 @@
                 </ol>
 
                 <div class="carousel-inner">
-            <div *ngFor="let item of posts; let i = index">
-                <div class="carousel-item {{isFirstActive(i)}}">
+            <div *ngFor="let item of posts; let i = index" class="carousel-item {{isFirstActive(i)}}">
+                <div >
                     <div class="card">
                         <div class="row divider">
                             <h5 class="card-lable col-sm-6">Paskolos ID</h5>
