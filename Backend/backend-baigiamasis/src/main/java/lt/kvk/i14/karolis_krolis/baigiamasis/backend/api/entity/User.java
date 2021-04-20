@@ -3,6 +3,7 @@ package lt.kvk.i14.karolis_krolis.baigiamasis.backend.api.entity;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,6 +28,10 @@ public class User {
 	private String userEmail;
 	private int creditScore;
 	private String creditGroup;
+
+	@OneToMany(mappedBy = "to")
+	@JsonIgnoreProperties("to")
+	private List<Notification> notifications;
 
 //	@OneToMany(mappedBy = "user")
 //	private List<LoanPost> loanPosts;
