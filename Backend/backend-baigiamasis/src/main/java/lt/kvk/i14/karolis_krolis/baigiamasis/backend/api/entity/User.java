@@ -30,8 +30,9 @@ public class User {
 	private String creditGroup;
 
 	@OneToMany(mappedBy = "to")
-	@JsonIgnoreProperties("to")
+	@JsonIgnoreProperties({"to", "from", "loanPost"})
 	private List<Notification> notifications;
+
 
 //	@OneToMany(mappedBy = "user")
 //	private List<LoanPost> loanPosts;
