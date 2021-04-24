@@ -13,6 +13,7 @@
 
 <mat-menu #Notifications class="address-book">
     <div *ngFor="let notification of notifications">
-        <button class="btn btn-primary address-book-btn" type="button">{{notification.id}}</button>
+        <button class="btn btn-primary address-book-btn" type="button" (click)="
+        openNotificationDialgo(notification)">{{notification.id}}</button>
     </div>
 </mat-menu>

@@ -28,7 +28,7 @@ public class NotificationController {
         return repository.findById(id);
     }
 
-    @PutMapping("/read/{id}")
+    @GetMapping("/read/{id}")
     public void readNotification(@RequestHeader("Authorization") String header, @PathVariable(value = "id") int id) {
         Notification notification = repository.findById(id);
         notification.setStatus("RECEIVED");

@@ -13,13 +13,13 @@ export class NotificationService {
   constructor(private http: HttpClient) { }
 
 
-  public readNotification (id) {
+  public readNotification (id: number) {
     let tokenStr: string = 'Bearer ' + localStorage.getItem('token');
     const headers = new HttpHeaders().set("Authorization", tokenStr);
-    return this.http.put(this.apiUrl + "/notification/" + id, {headers});
+    return this.http.get(this.apiUrl + "/notification/read/" + id, {headers});
   }
 
-  public getOneNotification(id) {
+  public getOneNotification(id: number) {
     let tokenStr: string = 'Bearer ' + localStorage.getItem('token');
     const headers = new HttpHeaders().set("Authorization", tokenStr);
     return this.http.get(this.apiUrl + "/notification/get/" + id, {headers});

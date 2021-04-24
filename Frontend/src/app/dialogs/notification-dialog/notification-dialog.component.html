@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <h3>Naudotojas {{oneNotification.from.firstName}} nori su jumis susisiegti</h3>
+    </div>
+    <div class="row">
+        <div class="col-6 d-flex justify-content-center">
+            <strong>Kontaktai:</strong>
+        </div>
+        <div class="col-6 d-flex justify-content-center">
+            <a href="mailto:{{oneNotification.from.userEmail}}">{{oneNotification.from.userEmail}}</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 d-flex justify-content-center">
+            <mat-dialog-actions>
+                <button class="btn btn-primary " (click)="close()">uzdaryti</button>
+            </mat-dialog-actions>
+        </div>
+        <div class="col-6 d-flex justify-content-center">
+            <!-- <mat-dialog-actions>
+                <button class="btn btn-primary " (click)="connectUsers()">susisiekti</button>
+            </mat-dialog-actions> -->
+        </div>
+    </div>
+</div>
