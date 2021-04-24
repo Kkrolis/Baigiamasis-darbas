@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <h2 mat-dialog-title class="d-flex justify-content-center">Naudotojo {{loanPostUser}} paskolos skelbimas</h2>
+    </div>
+    <div class="row loanDialogTitles">
+        <p mat-dialog-title class="col-6 d-flex justify-content-center">Paskolos suma: </p>
+        <p mat-dialog-title class="col-6 d-flex justify-content-center">{{allLoanPostData.ammount}}</p>
+    </div>
+    <div class="row loanDialogTitles">
+        <p mat-dialog-title class="col-6 d-flex justify-content-center">Paskolos tikslas: </p>
+        <p mat-dialog-title class="col-6 d-flex justify-content-center">{{allLoanPostData.reason.reasonName}}</p>
+    </div>
+    <div class="row loanDialogTitles">
+        <p mat-dialog-title class="col-6 d-flex justify-content-center">Paskolos skelbimo idejimo data: </p>
+        <p mat-dialog-title class="col-6 d-flex justify-content-center">{{allLoanPostData.timestamp}}</p>
+    </div>
+    <div class="row loanDialogTitles">
+        <p mat-dialog-title class="col-6 d-flex justify-content-center">Palukanos: </p>
+        <p mat-dialog-title class="col-6 d-flex justify-content-center">{{allLoanPostData.intrest}}</p>
+    </div>
+    <div class="row loanDialogTitles">
+        <p mat-dialog-title class="col-6 d-flex justify-content-center">laikotarpis: </p>
+        <p mat-dialog-title class="col-6 d-flex justify-content-center">{{allLoanPostData.duration}}</p>
+    </div>
+    <div class="row">
+        <div class="col-6 d-flex justify-content-center">
+            <mat-dialog-actions>
+                <button class="btn btn-primary " (click)="close()">atsaukti</button>
+            </mat-dialog-actions>
+        </div>
+        <div class="col-6 d-flex justify-content-center">
+            <mat-dialog-actions>
+                <button class="btn btn-primary " (click)="connectUsers()">susisiekti</button>
+            </mat-dialog-actions>
+        </div>
+    </div>
+</div>

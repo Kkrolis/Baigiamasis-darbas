@@ -2,11 +2,18 @@
 
 <mat-menu #UserMenu>
     <button mat-menu-item [matMenuTriggerFor]="AddressBook">Adresų knyga</button>
-    <button mat-menu-item>Mano paskolų skelbimai</button>
+    <button mat-menu-item [matMenuTriggerFor]="Notifications">Pranesimai</button>
 </mat-menu>
 
 <mat-menu #AddressBook class="address-book">
     <div *ngFor="let item of users">
         <button class="btn btn-primary address-book-btn" type="button" (click)="getId(item.userName)">{{item.userName}}</button>
+    </div>
+</mat-menu>
+
+<mat-menu #Notifications class="address-book">
+    <div *ngFor="let notification of notifications">
+        <button class="btn btn-primary address-book-btn" type="button" (click)="
+        openNotificationDialgo(notification)">{{notification.id}}</button>
     </div>
 </mat-menu>

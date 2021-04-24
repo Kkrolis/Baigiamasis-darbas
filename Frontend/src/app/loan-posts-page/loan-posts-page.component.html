@@ -30,7 +30,7 @@
                         {{row.duration}}
                     </td>
                     <td>
-                        <button class="btn btn-primary address-book-btn" type="button">Daugiau info</button>
+                        <button class="btn btn-primary address-book-btn" type="button" (click)="openLoanPostDialog(row)">Daugiau info</button>
                     </td>
                 </tr>
             </tbody>
@@ -41,7 +41,7 @@
     <div class="container loan-post-cards">
         <div class="row">
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
+                <ol class="carousel-indicators lines">
                     <li *ngFor="let item of posts; let i = index" data-target="#myCarousel" data-slide-to="{{i}}" class="{{isFirstActive(i)}}"></li>
                 </ol>
 
@@ -73,6 +73,10 @@
                             <p class="card-lable col-sm-6">Paskolos trukmė</p>
                             <p class="crad-value col-sm-6">{{item.duration}}</p>
                         </div>
+                        <div class="row carousel-loan-btn">
+                            <button class="btn btn-primary address-book-btn" type="button" (click)="openLoanPostDialog(item)">Daugiau info</button>
+                        </div>
+                        <div class="row"> <p></p></div>
                     </div>
                 </div>
             </div>

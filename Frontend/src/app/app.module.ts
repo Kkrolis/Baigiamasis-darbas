@@ -31,6 +31,8 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { RegistrationSuccesComponent } from './dialogs/registration-succes/registration-succes.component';
 import { AddNewLoanPostComponent } from './add-new-loan-post/add-new-loan-post.component';
+import { LoanPostDialogComponent } from './dialogs/loan-post-dialog/loan-post-dialog.component';
+import { NotificationDialogComponent } from './dialogs/notification-dialog/notification-dialog.component';
 
 
 
@@ -51,7 +53,9 @@ import { AddNewLoanPostComponent } from './add-new-loan-post/add-new-loan-post.c
     SidenavComponent,
     LoanPostsPageComponent,
     RegistrationSuccesComponent,
-    AddNewLoanPostComponent
+    AddNewLoanPostComponent,
+    LoanPostDialogComponent,
+    NotificationDialogComponent
    ],
   imports: [
     BrowserModule,

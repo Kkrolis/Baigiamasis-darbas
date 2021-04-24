@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { LoanPostDialogComponent } from '../dialogs/loan-post-dialog/loan-post-dialog.component';
 import { LoanPostService } from '../services/loan-post.service';
 
 @Component({
@@ -13,7 +15,7 @@ export class LoanPostsPageComponent implements OnInit {
 
 
 
-  constructor(public service: LoanPostService) { }
+  constructor(private dialog: MatDialog, public service: LoanPostService) { }
 
   ngOnInit(): void {
     // this.service.getPosts()
@@ -44,6 +46,18 @@ export class LoanPostsPageComponent implements OnInit {
     if (i == 0) {
       return "active";
     }
+  }
+
+  openLoanPostDialog(loanId){
+    const dialogConfig = new MatDialogConfig();
+    
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {
+      id: loanId
+    }
+    this.dialog.open(LoanPostDialogComponent, dialogConfig);
   }
 
   

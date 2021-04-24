@@ -27,7 +27,7 @@ export class AddNewLoanPostComponent implements OnInit {
     reason: null,
     timestamp: null,
     intrest: null,
-    durration: null,
+    duration: null,
     user: null
   };
 
@@ -55,7 +55,7 @@ export class AddNewLoanPostComponent implements OnInit {
 
     this.loanPost.timestamp = this.currentDate;
     this.loanPost.intrest = form.value.intrest;
-    this.loanPost.durration = form.value.duration;
+    this.loanPost.duration = form.value.duration;
     this.loanPost.user = this.oneUser;    
     this.loanPostService.postLoanPost(this.loanPost);
   }
