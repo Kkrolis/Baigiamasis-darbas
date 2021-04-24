@@ -15,16 +15,18 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "USER")
+@Table(name = "USER", uniqueConstraints=@UniqueConstraint(columnNames={"userName"}))
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+
 	private String userName;
 	private String firstName;
 	private String lastName;
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	private String userPassword;
+
 	private String userEmail;
 	private int creditScore;
 	private String creditGroup;

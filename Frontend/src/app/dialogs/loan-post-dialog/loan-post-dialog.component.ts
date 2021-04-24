@@ -19,7 +19,7 @@ export class LoanPostDialogComponent implements OnInit {
    }
 
 
-  loanPostUser = this.dialogData.id.user.userName;
+  loanPostUser = this.dialogData.id.user.firstName;
   allLoanPostData = this.dialogData.id;
 
   myDate = new Date();

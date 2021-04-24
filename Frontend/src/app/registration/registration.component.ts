@@ -13,6 +13,8 @@ export class RegistrationComponent implements OnInit {
 
   constructor(private service: UserService, private dialog: MatDialog) { }
 
+  registrationStatus: any;
+
   ngOnInit(): void {
   }
 
@@ -28,17 +30,21 @@ export class RegistrationComponent implements OnInit {
 
     if (!this.validateForm(sendForm)) {
       
-   
-    // console.log("it is working " +  sendForm.value.firstName);
-    this.authRequeast.userName = sendForm.value.userName;
-    this.authRequeast.firstName = sendForm.value.firstName;
-    this.authRequeast.lastName = sendForm.value.lastName;
-    this.authRequeast.userPassword = sendForm.value.password;
-    this.authRequeast.userEmail = sendForm.value.email;
-    // let user = new UserDto(sendForm.value.usertName, sendForm.value.firstName, sendForm.value.lastName, sendForm.value.password, sendForm.value.email)
-    this.service.postUser(this.authRequeast);
-    this.openRegistrationSuccesDialog();
+      this.authRequeast.userName = sendForm.value.userName;
+      this.authRequeast.firstName = sendForm.value.firstName;
+      this.authRequeast.lastName = sendForm.value.lastName;
+      this.authRequeast.userPassword = sendForm.value.password;
+      this.authRequeast.userEmail = sendForm.value.email;
 
+      this.registrationStatus = this.service.postUser(this.authRequeast);
+
+      setTimeout(() => {
+        if (this.registrationStatus.__zone_symbol__value != "BAD") {
+          this.openRegistrationSuccesDialog();
+        } else {console.log("Invalid Email");
+        }
+      }, 500);
+    
     };
   }
 

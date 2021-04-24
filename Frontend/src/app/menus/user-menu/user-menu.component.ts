@@ -18,6 +18,7 @@ export class UserMenuComponent implements OnInit {
 
   userName: any;
   users: any;
+  userFirstName: any;
 
   currentUser: any;
   notifications: any;
@@ -27,11 +28,13 @@ export class UserMenuComponent implements OnInit {
 
   ngOnInit(): void {
     if (localStorage.getItem('userName') === null) {
-      let res = this.service.getUserName(localStorage.getItem('token'));
-      res.subscribe(data => {
-        this.userName = data;
-        localStorage.setItem('userName', this.userName);
-      });
+        let res = this.service.getUserName(localStorage.getItem('token'));
+        res.subscribe(data => {
+          this.userName = data;
+          localStorage.setItem('userName', this.userName);
+        });
+
+        
     } else {
       this.userName = localStorage.getItem("userName");
     }
@@ -49,7 +52,8 @@ export class UserMenuComponent implements OnInit {
         this.userService.getOneUser(this.userName).subscribe(data => {
           this.currentUser = data;
           this.notifications = this.currentUser.notifications;
-          console.log(this.notifications); 
+          this.userFirstName = this.currentUser.firstName;
+          // console.log(this.notifications); 
         });
 
       }, 1000);
@@ -57,7 +61,8 @@ export class UserMenuComponent implements OnInit {
       this.userService.getOneUser(this.userName).subscribe(data => {
         this.currentUser = data;
         this.notifications = this.currentUser.notifications;
-        console.log(this.notifications); 
+        this.userFirstName = this.currentUser.firstName;
+        // console.log(this.notifications); 
       });
     }
 

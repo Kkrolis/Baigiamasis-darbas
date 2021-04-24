@@ -14,12 +14,12 @@ export class UserService {
   public postUser(request) {
     // console.log("service is working");
     
-    return new Promise ((resolve, reject) => {
-      this.http.post(this.apiUrl + "/user/register", request, {...request})
-      .subscribe((response: any) => {
-        resolve(response);
-      });
-    }) 
+    // return new Promise ((resolve, reject) => {
+    return this.http.post(this.apiUrl + "/user/register", request, {...request, responseType: 'text' as 'json'}).toPromise();
+    //   .subscribe((response: any) => {
+    //     resolve(response);
+    //   });
+    // }) 
   }
 
   public getUsers () {

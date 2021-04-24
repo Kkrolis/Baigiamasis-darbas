@@ -3,9 +3,12 @@ package lt.kvk.i14.karolis_krolis.baigiamasis.backend.api.controller;
 import lt.kvk.i14.karolis_krolis.baigiamasis.backend.api.entity.User;
 import lt.kvk.i14.karolis_krolis.baigiamasis.backend.api.repository.UserRepository;
 import lt.kvk.i14.karolis_krolis.baigiamasis.backend.api.util.CreditScoreUtil;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -22,12 +25,22 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    User addUser (@RequestBody User newUser) {
+    String addUser (@RequestBody User newUser) {
         System.out.println("this is working");
         int defaultScore = 50;
         newUser.setCreditScore(defaultScore);
         newUser.setCreditGroup(creditScoreUtil.setCreditGroupe(defaultScore));
-        return repository.save((newUser));
+        newUser.setUserName(newUser.getUserEmail());
+
+        try {
+            repository.save((newUser));
+            System.out.println("OK");
+            return "OK";
+        } catch (Exception e){
+            System.out.println("BAD");
+            return "BAD";
+        }
+
     }
 
     @GetMapping("/users")
