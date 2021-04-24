@@ -17,6 +17,10 @@ import { InvalidLoginComponent } from './dialogs/invalid-login/invalid-login.com
 import { UserMenuComponent } from './menus/user-menu/user-menu.component';
 import { SidenavComponent } from './menus/sidenav/sidenav.component';
 import { LoanPostsPageComponent } from './loan-posts-page/loan-posts-page.component';
+import { RegistrationSuccesComponent } from './dialogs/registration-succes/registration-succes.component';
+import { AddNewLoanPostComponent } from './add-new-loan-post/add-new-loan-post.component';
+import { LoanPostDialogComponent } from './dialogs/loan-post-dialog/loan-post-dialog.component';
+import { NotificationDialogComponent } from './dialogs/notification-dialog/notification-dialog.component';
 
 import { FormsModule } from '@angular/forms';
 import { from } from 'rxjs';
@@ -29,10 +33,9 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import { RegistrationSuccesComponent } from './dialogs/registration-succes/registration-succes.component';
-import { AddNewLoanPostComponent } from './add-new-loan-post/add-new-loan-post.component';
-import { LoanPostDialogComponent } from './dialogs/loan-post-dialog/loan-post-dialog.component';
-import { NotificationDialogComponent } from './dialogs/notification-dialog/notification-dialog.component';
+import {MatBadgeModule} from '@angular/material/badge';
+
+
 
 
 
@@ -74,7 +77,8 @@ import { NotificationDialogComponent } from './dialogs/notification-dialog/notif
     MatTooltipModule,
     MatDialogModule,
     MatMenuModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatBadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

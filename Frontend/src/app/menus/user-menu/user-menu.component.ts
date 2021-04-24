@@ -23,6 +23,8 @@ export class UserMenuComponent implements OnInit {
   notifications: any;
   oneNotification: any;
 
+  notificationCount: number = 0;
+
   ngOnInit(): void {
     if (localStorage.getItem('userName') === null) {
       let res = this.service.getUserName(localStorage.getItem('token'));
@@ -59,7 +61,26 @@ export class UserMenuComponent implements OnInit {
       });
     }
 
+    setTimeout(()=> {this.notificationCounting()}, 2000);
+
     //--------------------
+  }
+
+  notificationCounting(){
+    // this.notifications.forEach(element => {
+    //   if (element.status == "TOREAD") {
+    //     this.notificationCount++;
+    //   }
+    // });
+    for (let index = 0; index < this.notifications.length; index++) {
+      const element = this.notifications[index];
+      if (element.status == "TOREAD") {
+        this.notificationCount = this.notificationCount + 1;
+        console.log(this.notificationCount);
+        
+      }
+    }
+
   }
   
 
@@ -88,11 +109,18 @@ export class UserMenuComponent implements OnInit {
     }
     
     this.dialog.open(NotificationDialogComponent, dialogConfig);
+    this.notificationCount = this.notificationCount - 1;
   }
 
 
   getId (user) {
     localStorage.setItem("destination", user)
+  }
+
+  getNotificationBadge(){
+    if (this.notificationCount > 0) {
+      return this.notificationCount;
+    } 
   }
 
 }
