@@ -34,6 +34,8 @@ public class Room {
     @JsonIgnoreProperties({"roomId", "id"})
     private List<RoomList> roomList;
 
-
+    @OneToMany(mappedBy = "room")
+    @JsonIgnoreProperties({"roomId"})
+    private List<Message> messages;
 
 }

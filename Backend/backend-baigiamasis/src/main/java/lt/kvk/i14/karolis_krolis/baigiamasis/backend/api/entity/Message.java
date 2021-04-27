@@ -19,6 +19,10 @@ public class Message {
 	@JoinColumn(name="id")
 	private User sender;
 
+	@ManyToOne()
+	@JoinColumn(name="roomId")
+	private Room room;
+
 	private String message;
 	private String timestamp;
 }
