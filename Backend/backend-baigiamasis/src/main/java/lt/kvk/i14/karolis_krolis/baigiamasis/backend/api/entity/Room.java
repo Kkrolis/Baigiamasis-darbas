@@ -1,8 +1,6 @@
 package lt.kvk.i14.karolis_krolis.baigiamasis.backend.api.entity;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,6 +19,16 @@ public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int roomId;
+
+    @ManyToOne()
+    @JoinColumn(name = "user1_id")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private User user1;
+
+    @ManyToOne()
+    @JoinColumn(name = "user2_id")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private User user2;
 
     @OneToMany(mappedBy = "roomId")
     @JsonIgnoreProperties({"roomId", "id"})
