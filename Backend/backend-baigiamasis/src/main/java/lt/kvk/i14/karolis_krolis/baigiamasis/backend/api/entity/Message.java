@@ -4,11 +4,21 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
+
 @Data
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 public class Message {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int messageId;
+
+	@ManyToOne()
+	@JoinColumn(name="id")
+	private User sender;
+
 	private String message;
-	private String fromUser;
-	private String destination;
+	private String timestamp;
 }

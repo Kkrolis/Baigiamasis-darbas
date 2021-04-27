@@ -31,4 +31,6 @@ public class Notification {
     @JoinColumn(name="loanPostId")
     private LoanPost loanPost;
 
+    private String type;
+
 }

@@ -31,7 +31,8 @@ export class LoanPostDialogComponent implements OnInit {
     to: null,
     from: null,
     timestamp: null,
-    loanPost: null
+    loanPost: null,
+    type: null
   }
 
   ngOnInit(): void {
@@ -51,6 +52,7 @@ export class LoanPostDialogComponent implements OnInit {
     this.notification.from = this.fromUser;
     this.notification.timestamp = this.currentDate;
     this.notification.loanPost = this.dialogData.id;
+    this.notification.type = "REACH"
     
     this.notificationService.sendNotificiation(this.notification);
   }

@@ -35,8 +35,8 @@ public class User {
 	@JsonIgnoreProperties({"to", "from", "loanPost"})
 	private List<Notification> notifications;
 
+	@OneToMany(mappedBy = "userId")
+	@JsonIgnoreProperties({"userId"})
+	private List<RoomList> roomList;
 
-//	@OneToMany(mappedBy = "user")
-//	private List<LoanPost> loanPosts;
-	
 }
