@@ -1,9 +1,21 @@
-<div class="container">
+<div class="container messageDialog">
     <div class="row">
-        <p>messaging dialog works</p>
+        <div>
+            <div *ngFor="let message of messages">
+                <div><strong>{{message.sender.firstName}}</strong></div>
+                <p>{{message.message}}</p>
+            </div>
+        </div>
     </div>
 
     <div class="row">
+        <form class="p-3 mb-5 rounded" (ngSubmit)="sendMsg(sendmsg)" #sendmsg="ngForm">
+            <input name="msg" id="msg" #msg ngModel>
+            <button type="submit" class="btn btn-primary ">siusti</button>
+        </form>
+    </div>
+
+    <div class="row msg_buttons">
         <div class="col-6 d-flex justify-content-center">
             <mat-dialog-actions>
                 <button class="btn btn-primary " (click)="close()">uzdaryti</button>

@@ -38,6 +38,7 @@ public class Room {
 
     @OneToMany(mappedBy = "room")
     @JsonIgnoreProperties({"roomId"})
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private List<Message> messages;
 
 }

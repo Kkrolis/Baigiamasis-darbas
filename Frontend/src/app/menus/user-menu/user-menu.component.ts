@@ -135,7 +135,8 @@ export class UserMenuComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.data = {
-      data: room
+      data: room,
+      currentUser: this.currentUser
     };
     this.dialog.open(MessagingDialogComponent, dialogConfig);
   }
