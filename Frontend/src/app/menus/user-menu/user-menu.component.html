@@ -3,6 +3,7 @@
 <mat-menu #UserMenu>
     <button mat-menu-item [matMenuTriggerFor]="AddressBook">Adresų knyga</button>
     <button mat-menu-item [matMenuTriggerFor]="Notifications">Pranesimai</button>
+    <button mat-menu-item [matMenuTriggerFor]="Messages">Kontaktai</button>
 </mat-menu>
 
 <mat-menu #AddressBook class="address-book">
@@ -15,5 +16,11 @@
     <div *ngFor="let notification of notifications">
         <button class="btn btn-primary address-book-btn" type="button" (click)="
         openNotificationDialgo(notification)">{{notification.id}}</button>
+    </div>
+</mat-menu>
+
+<mat-menu #Messages class="address-book">
+    <div *ngFor="let room of currentUser.roomList">
+        <button class="btn btn-primary address-book-btn" type="button" >{{room.roomId}}</button>
     </div>
 </mat-menu>
