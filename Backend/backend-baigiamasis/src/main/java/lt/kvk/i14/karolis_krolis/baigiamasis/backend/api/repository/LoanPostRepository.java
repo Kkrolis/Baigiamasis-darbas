@@ -6,7 +6,9 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface LoanPostRepository extends JpaRepository<LoanPost, Integer> {
 
 //    @Query(value = "SELECT c FROM LOANPOST c WHERE c.id= :userid")
