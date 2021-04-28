@@ -37,6 +37,7 @@ public class User {
 
 	@OneToMany(mappedBy = "userId")
 	@JsonIgnoreProperties({"userId"})
+	@JsonProperty(access = JsonProperty.Access.READ_ONLY)
 	private List<RoomList> roomList;
 
 }

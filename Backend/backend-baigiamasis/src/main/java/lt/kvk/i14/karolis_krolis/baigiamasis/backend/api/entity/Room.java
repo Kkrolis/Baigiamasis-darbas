@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lt.kvk.i14.karolis_krolis.baigiamasis.backend.api.util.EntityIdResolver;
 
 import javax.persistence.*;
 import java.util.List;
@@ -13,7 +14,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "roomId")
+        property = "roomId",
+        resolver = EntityIdResolver.class)
 public class Room {
 
     @Id
