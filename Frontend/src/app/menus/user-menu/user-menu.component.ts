@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MessagingDialogComponent } from 'src/app/dialogs/messaging-dialog/messaging-dialog.component';
 import { NotificationDialogComponent } from 'src/app/dialogs/notification-dialog/notification-dialog.component';
 import { JwtClientService } from 'src/app/jwt-client.service';
 import { UserDto } from 'src/app/models/userDto';
@@ -126,6 +127,17 @@ export class UserMenuComponent implements OnInit {
     if (this.notificationCount > 0) {
       return this.notificationCount;
     } 
+  }
+
+  openMessagingDialog(room){
+    const dialogConfig = new MatDialogConfig();
+    
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {
+      data: room
+    };
+    this.dialog.open(MessagingDialogComponent, dialogConfig);
   }
 
 }

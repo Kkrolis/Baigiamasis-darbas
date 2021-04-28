@@ -34,6 +34,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatBadgeModule} from '@angular/material/badge';
+import { MessagingDialogComponent } from './dialogs/messaging-dialog/messaging-dialog.component';
 
 
 
@@ -58,7 +59,8 @@ import {MatBadgeModule} from '@angular/material/badge';
     RegistrationSuccesComponent,
     AddNewLoanPostComponent,
     LoanPostDialogComponent,
-    NotificationDialogComponent
+    NotificationDialogComponent,
+    MessagingDialogComponent
    ],
   imports: [
     BrowserModule,

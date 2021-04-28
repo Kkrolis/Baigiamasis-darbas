@@ -21,6 +21,6 @@
 
 <mat-menu #Messages class="address-book">
     <div *ngFor="let room of currentUser.roomList">
-        <button class="btn btn-primary address-book-btn" type="button" >{{room.roomId}}</button>
+        <button class="btn btn-primary address-book-btn" type="button" (click)="openMessagingDialog(room)">{{room.roomId}}</button>
     </div>
 </mat-menu>
