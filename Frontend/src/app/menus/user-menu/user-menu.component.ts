@@ -4,6 +4,7 @@ import { MessagingDialogComponent } from 'src/app/dialogs/messaging-dialog/messa
 import { NotificationDialogComponent } from 'src/app/dialogs/notification-dialog/notification-dialog.component';
 import { JwtClientService } from 'src/app/jwt-client.service';
 import { UserDto } from 'src/app/models/userDto';
+import { MessagingRoomService } from 'src/app/services/messaging-room.service';
 import { NotificationService } from 'src/app/services/notification.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -14,7 +15,8 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserMenuComponent implements OnInit {
 
-  constructor(private service: JwtClientService, public userService: UserService, private notificationService: NotificationService, private dialog: MatDialog) { }
+  constructor(private service: JwtClientService, public userService: UserService,
+     private notificationService: NotificationService, private dialog: MatDialog, private messagingRoomService: MessagingRoomService) { }
   isLogedIn: boolean;
 
   userName: any;
@@ -139,6 +141,15 @@ export class UserMenuComponent implements OnInit {
       currentUser: this.currentUser
     };
     this.dialog.open(MessagingDialogComponent, dialogConfig);
+  }
+
+  getUserFromNoti(notification){
+    // await this.messagingRoomService.getRoom(notification.roomId).subscribe(data => {
+    //   result = data;
+    // })
+    // return notification.from.firstName;
+    return notification.roomId;
+    
   }
 
 }

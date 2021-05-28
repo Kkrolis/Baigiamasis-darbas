@@ -76,10 +76,10 @@ export class RegistrationComponent implements OnInit {
       wrongLastName.style.display = 'contents';
     } else {wrongLastName.style.display = 'none';}
 
-    if (sendForm.value.userName === "") {
-      badForm = true;
-      noUserName.style.display = 'contents';
-    } else {noUserName.style.display = 'none';}
+    // if (sendForm.value.userName === "") {
+    //   badForm = true;
+    //   noUserName.style.display = 'contents';
+    // } else {noUserName.style.display = 'none';}
 
     if (sendForm.value.email === "" || !this.validateEmail(sendForm.value.email)) {
       badForm = true;

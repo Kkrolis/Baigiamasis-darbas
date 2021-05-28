@@ -28,4 +28,5 @@ public class LoanPost {
     @ManyToOne
     @JoinColumn(name="id")
     private User user;
+    
 }

@@ -3,8 +3,56 @@
     max-height: 400px;
     min-height: 400px;
     min-height: 400px;
+    max-width: 400px;
+    overflow: scroll;
 }
 
 .msg_buttons{
     bottom: 0;
+}
+
+.msg-self-name{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.msg-self{
+    display: flex;
+    justify-content: flex-end;
+    border: solid blue;
+    border-radius: 10px;
+}
+
+.msg-holder{
+    display: grid;
+}
+
+.msg-remote{
+    border: solid orange;
+    border-radius: 10px;
+}
+
+.msg-remote-name{
+
+}
+
+.btn_close .mat-dialog-actions{
+    display: block;
+    float: right;
+}
+
+
+.btn_close button{
+    background: white;
+    color: black;
+    display: contents;
+    float: right;
+}
+
+.msg-form{
+    max-height: 50px;
+}
+
+.mat-dialog-container{
+    padding-top: 0px!important;
 }

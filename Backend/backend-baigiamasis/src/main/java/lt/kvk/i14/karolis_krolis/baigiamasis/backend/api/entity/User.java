@@ -33,6 +33,7 @@ public class User {
 
 	@OneToMany(mappedBy = "to")
 	@JsonIgnoreProperties({"to", "from", "loanPost"})
+	@JsonProperty(access = JsonProperty.Access.READ_ONLY)
 	private List<Notification> notifications;
 
 	@OneToMany(mappedBy = "userId")

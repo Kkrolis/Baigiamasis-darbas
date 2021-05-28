@@ -46,6 +46,8 @@ export class NotificationDialogComponent implements OnInit {
     this.room.user1 = this.currentUser;
     this.room.user2 = this.oneNotification.from;
     this.messagingRoomService.createRoom(this.room);
+
+    this.notificationService.deleteNotification(this.dialogData.id.id).subscribe();
   }
 
 }

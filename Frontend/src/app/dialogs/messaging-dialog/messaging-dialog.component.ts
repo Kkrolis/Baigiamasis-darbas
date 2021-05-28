@@ -14,6 +14,13 @@ export class MessagingDialogComponent implements OnInit {
   private messagingRoomService: MessagingRoomService
   ) { }
 
+
+  // intervalId = setInterval(this.getMessages, 1000);
+
+  // ngOnDestroy() {
+  //   clearInterval(this.intervalId);
+  // }
+
   room: any;
   messages: any;
 
@@ -46,8 +53,49 @@ export class MessagingDialogComponent implements OnInit {
     this.messageBody.message = sendForm.value.msg;
     this.messagingRoomService.sendMsg(this.messageBody);
 
-    this.ngOnInit()
+    // this.ngOnInit()
+    setTimeout(() => {
+      this.messagingRoomService.getRoom(this.dialogData.data.roomId).subscribe(data => {
+        this.room = data;
+        this.messages = this.room.messages;
+        console.log(this.messages);
+      });
+    }, 500);
     
   }
+
+  isSelf (userName: string) {
+    if (userName == localStorage.getItem("userName")) {
+      return "msg-self";
+    } else {
+      return "msg-remote";
+    }
+  }
+
+  isSelfName (userName: string) {
+    if (userName == localStorage.getItem("userName")) {
+      return "msg-self-name";
+    } else {
+      return "msg-remote-name";
+    }
+  }
+
+  getMsg(){
+    setTimeout(() => {
+      this.messagingRoomService.getRoom(this.dialogData.data.roomId).subscribe(data => {
+        this.room = data;
+        this.messages = this.room.messages;
+        console.log(this.messages);
+      });
+    }, 500);
+  }
+
+  // getMessages(){
+  //   this.messagingRoomService.getRoom(this.dialogData.data.roomId).subscribe(data => {
+  //     this.room = data;
+  //     this.messages = this.room.messages;
+  //     console.log(this.messages);
+  //   });
+  // }
 
 }

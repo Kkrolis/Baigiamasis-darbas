@@ -15,12 +15,12 @@
 <mat-menu #Notifications class="address-book">
     <div *ngFor="let notification of notifications">
         <button class="btn btn-primary address-book-btn" type="button" (click)="
-        openNotificationDialgo(notification)">{{notification.id}}</button>
+        openNotificationDialgo(notification)">Gautas pranešimas {{notification.id}}</button>
     </div>
 </mat-menu>
 
 <mat-menu #Messages class="address-book">
     <div *ngFor="let room of currentUser.roomList">
-        <button class="btn btn-primary address-book-btn" type="button" (click)="openMessagingDialog(room)">{{room.roomId}}</button>
+        <button class="btn btn-primary address-book-btn" type="button" (click)="openMessagingDialog(room)">Pokalbiu kambary nr. {{getUserFromNoti(room)}}</button>
     </div>
 </mat-menu>

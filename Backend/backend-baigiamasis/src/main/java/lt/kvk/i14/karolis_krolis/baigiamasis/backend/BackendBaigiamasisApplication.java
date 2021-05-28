@@ -48,6 +48,8 @@ public class BackendBaigiamasisApplication {
 						.allowedMethods("*").allowCredentials(true);
 				registry.addMapping("/api/message/sendMessage").allowedHeaders("*").allowedOriginPatterns("*")
 						.allowedMethods("*").allowCredentials(true);
+				registry.addMapping("/api/notification/del/*").allowedHeaders("*").allowedOriginPatterns("*")
+						.allowedMethods("*").allowCredentials(true);
 			}
 		};
 	}

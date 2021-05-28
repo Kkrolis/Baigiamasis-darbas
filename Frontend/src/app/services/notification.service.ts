@@ -35,4 +35,10 @@ export class NotificationService {
       });
     });
   }
+
+  public deleteNotification(id){
+    let tokenStr: string = 'Bearer ' + localStorage.getItem('token');
+    const headers = new HttpHeaders().set("Authorization", tokenStr);
+    return this.http.delete(this.apiUrl + "/notification/del/" + id, {headers});
+  }
 }
